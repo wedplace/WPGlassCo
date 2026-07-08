@@ -8,7 +8,146 @@
 <title>WP Glass Co</title>
 
 <link rel="stylesheet" href="css/global.css">
+<style>
+.wp-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.95),
+    rgba(0,0,0,0.65),
+    transparent
+  );
+  padding: 20px 40px 0;
+  font-family: 'Urbanist', sans-serif;
+}
 
+.wp-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.wp-logo img {
+  width: 150px;
+  height: auto;
+}
+
+.wp-search input {
+  width: 320px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 30px;
+  padding: 12px 20px;
+  color: white;
+}
+
+.wp-search input::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+.wp-actions {
+  display: flex;
+  gap: 18px;
+}
+
+.wp-actions button {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.65);
+  font-size: 22px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.wp-actions button:hover {
+  color: #08E2A5;
+  text-shadow:
+    0 0 8px #08E2A5,
+    0 0 20px #08E2A5;
+}
+
+
+.wp-main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 25px 0;
+}
+
+
+.wp-main-nav > div > a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .3s ease;
+}
+
+
+.wp-main-nav > div > a:hover {
+  color:white;
+  text-shadow:
+  0 0 8px #08E2A5,
+  0 0 25px #08E2A5;
+}
+
+
+.wp-dropdown {
+  position:relative;
+}
+
+
+.wp-dropdown-menu {
+  position:absolute;
+  top:35px;
+  left:50%;
+  transform:translateX(-50%) translateY(10px);
+  background:rgba(10,10,10,.96);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;
+  padding:12px;
+  min-width:240px;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+}
+
+
+.wp-dropdown:hover .wp-dropdown-menu {
+  opacity:1;
+  pointer-events:auto;
+  transform:translateX(-50%) translateY(0);
+}
+
+
+.wp-dropdown-menu a {
+  display:block;
+  padding:10px 14px;
+  color:rgba(255,255,255,.55);
+  text-decoration:none;
+  font-size:12px;
+}
+
+
+.wp-dropdown-menu a:hover {
+  color:#08E2A5;
+  background:rgba(8,226,165,.08);
+}
+
+
+body {
+  padding-top:150px;
+}
+
+</style>
 </head>
 
 <body>
