@@ -4,24 +4,29 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     min-height: 100vh;
-    background: #050505;
-    color: white;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    background-color: #050505;
+    background-image: url("../assets/images/stars.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: 'Urbanist', sans-serif;
 }
 
-h1 {
-    font-size: 4rem;
-    letter-spacing: .15em;
-    text-transform: uppercase;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-p {
-    margin-top: 20px;
-    opacity: .7;
+:root {
+    --wp-teal: #08E2A5;
+    --wp-cyan: #00E5FF;
+    --wp-purple: #9B59B6;
+    --wp-dark: #050505;
 }
