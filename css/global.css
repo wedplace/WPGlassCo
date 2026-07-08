@@ -31,7 +31,7 @@ a {
     --wp-dark: #050505;
 }
 .hero-logo {
-    width: min(500px, 80vw);
+    width: min(280px, 65vw);
     height: auto;
     filter: drop-shadow(0 0 20px rgba(8,226,165,.35));
 }
