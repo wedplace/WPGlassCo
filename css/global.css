@@ -25,3 +25,6 @@ p {
     margin-top: 20px;
     opacity: .7;
 }
+body {
+    background: red !important;
+}
