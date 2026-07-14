@@ -329,3 +329,209 @@ a {
 
 
 }
+/* =========================
+   COLLECTIONS SECTION
+========================= */
+
+
+.wp-collections {
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:100px 50px;
+
+}
+
+
+
+.wp-section-header {
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:0 auto 60px;
+
+}
+
+
+
+.wp-section-kicker {
+
+    color:var(--wp-teal);
+
+    text-transform:uppercase;
+
+    letter-spacing:.25em;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+
+
+.wp-section-header h2 {
+
+    margin:20px 0;
+
+    font-size:clamp(36px,5vw,60px);
+
+    text-transform:uppercase;
+
+    font-weight:800;
+
+}
+
+
+
+.wp-section-header p:last-child {
+
+    color:rgba(255,255,255,.65);
+
+    font-size:18px;
+
+    line-height:1.6;
+
+}
+
+
+
+.wp-collection-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.wp-collection-card {
+
+    position:relative;
+
+    height:450px;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:#080808;
+
+    transition:.4s ease;
+
+}
+
+
+
+.wp-collection-card img {
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:.75;
+
+    transition:.5s ease;
+
+}
+
+
+
+.wp-card-overlay {
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    padding:35px;
+
+    background:
+    linear-gradient(
+    transparent,
+    rgba(0,0,0,.9)
+    );
+
+}
+
+
+
+.wp-card-overlay h3 {
+
+    font-size:32px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+.wp-card-overlay span {
+
+    margin-top:10px;
+
+    color:var(--wp-cyan);
+
+    text-transform:uppercase;
+
+    letter-spacing:.15em;
+
+}
+
+
+
+.wp-collection-card:hover {
+
+    transform:translateY(-10px);
+
+    border-color:var(--wp-teal);
+
+    box-shadow:
+    0 0 35px rgba(8,226,165,.35);
+
+}
+
+
+
+.wp-collection-card:hover img {
+
+    transform:scale(1.08);
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+.wp-collections {
+
+    padding:70px 25px;
+
+}
+
+
+.wp-collection-grid {
+
+    grid-template-columns:1fr;
+
+}
+
+}
