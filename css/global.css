@@ -700,3 +700,6 @@ a {
     margin-top: 30px;
     display: inline-block;
 }
+.wp-story-content {
+    padding-bottom: 50px;
+}
