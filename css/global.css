@@ -1483,3 +1483,248 @@ a {
     }
 
 }
+/* ==========================================
+   WP GLASS CLUB
+========================================== */
+
+.wp-club {
+
+    max-width:1400px;
+    margin:auto;
+    padding:120px 50px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+    align-items:center;
+
+}
+
+
+.wp-club-content h2 {
+
+    margin:25px 0;
+
+    font-size:clamp(42px,5vw,70px);
+
+    line-height:1;
+
+    text-transform:uppercase;
+
+}
+
+
+.wp-club-content p {
+
+    color:rgba(255,255,255,.7);
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    max-width:550px;
+
+}
+
+
+.wp-club-grid {
+
+    display:grid;
+
+    gap:25px;
+
+}
+
+
+.wp-club-card {
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    transition:.35s ease;
+
+}
+
+
+.wp-club-card span {
+
+    font-size:35px;
+
+    color:var(--wp-teal);
+
+}
+
+
+.wp-club-card h3 {
+
+    margin:15px 0;
+
+    text-transform:uppercase;
+
+    font-size:25px;
+
+}
+
+
+.wp-club-card p {
+
+    color:rgba(255,255,255,.6);
+
+    line-height:1.6;
+
+}
+
+
+.wp-club-card:hover {
+
+    transform:translateX(10px);
+
+    border-color:var(--wp-purple);
+
+    box-shadow:
+    0 0 35px rgba(176,92,255,.3);
+
+}
+
+
+
+/* ==========================================
+   EVENTS
+========================================== */
+
+
+.wp-events {
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:100px 50px;
+
+}
+
+
+.wp-events-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+
+.wp-event-card {
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    transition:.35s ease;
+
+}
+
+
+.wp-event-date {
+
+    color:var(--wp-cyan);
+
+    font-size:13px;
+
+    letter-spacing:.2em;
+
+    font-weight:700;
+
+}
+
+
+.wp-event-card h3 {
+
+    margin:20px 0;
+
+    font-size:28px;
+
+    text-transform:uppercase;
+
+}
+
+
+.wp-event-card p {
+
+    color:rgba(255,255,255,.65);
+
+    line-height:1.7;
+
+}
+
+
+.wp-event-card span {
+
+    display:block;
+
+    margin-top:25px;
+
+    color:var(--wp-teal);
+
+    text-transform:uppercase;
+
+    font-weight:700;
+
+}
+
+
+.wp-event-card:hover {
+
+    transform:translateY(-10px);
+
+    border-color:var(--wp-teal);
+
+    box-shadow:
+    0 0 35px rgba(8,226,165,.3);
+
+}
+
+
+
+@media(max-width:1000px){
+
+    .wp-club {
+
+        grid-template-columns:1fr;
+
+        padding:80px 25px;
+
+        text-align:center;
+
+    }
+
+
+    .wp-events {
+
+        padding:80px 25px;
+
+    }
+
+
+    .wp-events-grid {
+
+        grid-template-columns:1fr;
+
+    }
+
+}
