@@ -1936,3 +1936,11 @@ a {
 
 
 }
+/* Hide mobile menu until mobile navigation is rebuilt */
+.wp-mobile-menu {
+    display:none !important;
+}
+
+.wp-mobile-toggle {
+    display:none !important;
+}
