@@ -694,3 +694,9 @@ a {
 }
 
 }
+/* Fix WP Story button spacing */
+
+.wp-story-content .wp-btn {
+    margin-top: 30px;
+    display: inline-block;
+}
