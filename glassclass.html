@@ -1,1 +1,107 @@
+ <!-- ==================== WPGLASSCO HEADER========================= --> 
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>WP Glass Co</title> <link rel="stylesheet" href="css/global.css"> <style> @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&display=swap'); :root { --wp-cyan:#00E5FF; --wp-green:#08E2A5; --wp-purple:#B05CFF; --wp-pink:#FF4FD8; --wp-violet:#C084FC; } body { padding-top:100px; } #wp-header { position:fixed; top:0; left:0; width:100%; z-index:99999; font-family:'Urbanist',sans-serif; background: linear-gradient( 180deg, rgba(0,0,0,.96), rgba(8,8,12,.82), rgba(0,0,0,.35) ); backdrop-filter:blur(18px); border-bottom:1px solid rgba(255,255,255,.08); } #wp-header::after { content:""; position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient( 90deg, #B05CFF, #00E5FF, #08E2A5, #FF4FD8, #B05CFF ); background-size:300%; animation:wpGlow 8s linear infinite; } @keyframes wpGlow { 0% {background-position:0%} 100% {background-position:300%} } .wp-header-inner { max-width:1400px; height:100px; margin:auto; padding:0 35px; display:flex; align-items:center; justify-content:space-between; gap:25px; } /* LOGO */ .wp-logo img { height:155px; width:auto; display:block; transition:.3s ease; } .wp-logo:hover img { filter: drop-shadow(0 0 20px #08E2A5) drop-shadow(0 0 35px rgba(8,226,165,.5)); transform:scale(1.05); } /* SEARCH */ .wp-search { flex:1; max-width:350px; } .wp-search input { width:100%; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15); border-radius:30px; padding:12px 20px; color:white; font-family:'Urbanist'; outline:none; } .wp-search input::placeholder { color:rgba(255,255,255,.45); } .wp-search input:focus { border-color:#00E5FF; box-shadow:0 0 20px rgba(0,229,255,.35); } /* NAV */ .wp-menu { display:flex; align-items:center; gap:12px; list-style:none; margin:0; padding:0; } .wp-menu > li { position:relative; } .wp-menu > li > a { color:rgba(255,255,255,.65); text-decoration:none; text-transform:uppercase; font-size:18px; font-weight:800; letter-spacing:.12em; padding:15px; transition:.25s ease; } .wp-menu > li:nth-child(1):hover > a { color:#FF4FD8; text-shadow:0 0 15px #FF4FD8; } .wp-menu > li:nth-child(2):hover > a { color:#08E2A5; text-shadow:0 0 15px #08E2A5; } .wp-menu > li:nth-child(3):hover > a { color:#00E5FF; text-shadow:0 0 15px #00E5FF; } .wp-menu > li:nth-child(4):hover > a { color:#C084FC; text-shadow:0 0 15px #C084FC; } /* DROPDOWN */ .wp-dropdown { display:none; position:absolute; top:45px; left:50%; transform:translateX(-50%); min-width:230px; background:rgba(10,10,14,.95); border:1px solid rgba(255,255,255,.15); border-radius:14px; padding:10px 0; box-shadow: 0 0 30px rgba(0,0,0,.8); backdrop-filter:blur(20px); } .wp-menu li:hover .wp-dropdown { display:block; } .wp-dropdown a { display:block; padding:12px 20px; color:rgba(255,255,255,.55); text-decoration:none; font-size:18px; text-transform:uppercase; } .wp-dropdown a:hover { color:white; background:rgba(255,255,255,.08); } /* ICONS */ .wp-actions { display:flex; gap:15px; } .wp-actions a { color:rgba(255,255,255,.6); text-decoration:none; font-size:18px; text-transform:uppercase; transition:.25s; } .wp-actions a:hover { color:#00E5FF; text-shadow:0 0 20px #00E5FF; } /* MOBILE */ @media(max-width:1000px){ .wp-search { display:none; } .wp-menu { display:none; } .wp-header-inner { padding:0 20px; } } </style> <header id="wp-header"> <div class="wp-header-inner"> <a class="wp-logo" href="/"> <img src="assets/images/logo.png" alt="WPGlassCo"> </a> <div class="wp-search"> <input type="search" placeholder="Search WPGlassCo..."> </div> <ul class="wp-menu"> <li> <a href="https://wedplace.github.io/WPGlassCo/shop.html">Shop</a> <div class="wp-dropdown"> <a href="/concentrate.html">Concentrate Pieces</a> <a href="/flower.html">Flower Pieces</a> <a href="/erig.html">E-Rig Pieces</a> <a href="/merch.html">Merch</a> <a href="/fullsets.html">Curations</a> <a href="/requests.html">Request Form</a> </div> </li> <li> <a href="/wholesale.html">Wholesale</a> <div class="wp-dropdown"> <a href="/wsinformation.html">Information</a> <a href="wsapply.html">Application</a> <a href="/wsbundles.hrtml">Catalog</a> </div> </li> <li> <a href="eled.html">Elevate & Educate</a> <div class="wp-dropdown"> <a href="/conclass.html">Concentrates</a> <a href="/hrclass.html">Harm Reduction</a> <a href="/glassclass.html">Glass & Smokeware</a> <a href="/homies.html">Sources We Trust</a> </div> </li> <li> <a href="aboutus.html">About Us</a> <div class="wp-dropdown"> <a href="/whatswp.html">Learn More</a> <a href="/faq.html">FAQ</a> <a href="/policies.html">Policies</a> <a href="/reviews.html">Reviews</a> </div> </li> </ul> <div class="wp-actions"> <a href="wishlist.html">♡</a> <a href="cart.html">🛒</a> <a href="account.html">◯</a> </div> <button class="wp-mobile-toggle"> ☰ </button> </div></header>
+ 
+
+<style>
+#wpgc-tabs-g {
+  all: initial;
+  display: block !important;
+  width: 100% !important;
+  background: #000 !important;
+  padding: 24px !important;
+  box-sizing: border-box !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+#wpgc-tabs-g * {
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#wpgc-tabs-g .tabs-topic {
+  display: block !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.28em !important;
+  text-transform: uppercase !important;
+  color: #07eef0 !important;
+  margin-bottom: 16px !important;
+}
+#wpgc-tabs-g .tabs-nav {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  margin-bottom: 2px !important;
+}
+#wpgc-tabs-g .tab-btn {
+  all: unset !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.4) !important;
+  background: #0c0c0c !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  padding: 8px 16px !important;
+  transition: all 0.2s !important;
+  white-space: nowrap !important;
+}
+#wpgc-tabs-g .tab-btn:hover {
+  color: #fff !important;
+  border-color: rgba(7,238,240,0.3) !important;
+}
+#wpgc-tabs-g .tab-btn.active {
+  color: #000 !important;
+  background: #07eef0 !important;
+  border-color: #07eef0 !important;
+}
+#wpgc-tabs-g .slide-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  padding-bottom: 56.25% !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(7,238,240,0.15) !important;
+  border-top: none !important;
+}
+#wpgc-tabs-g .slide-wrapper iframe {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+}
+</style>
+
+<div id="wpgc-tabs-g">
+  <span class="tabs-topic">Glass & Smokeware</span>
+  <div class="tabs-nav">
+    <button class="tab-btn active" data-src="https://www.canva.com/design/DAHI4lgoqTQ/3QO7J4aM_ryNCopMHIJKQg/view?embed">Glass 101</button>
+    <button class="tab-btn" data-src="PASTE_CANVA_EMBED_URL_2">coming soon</button>
+    <button class="tab-btn" data-src="PASTE_CANVA_EMBED_URL_3">Part 3: coming soon</button>
+  </div>
+  <div class="slide-wrapper">
+    <iframe id="wpgc-frame-g" src="https://www.canva.com/design/DAHI4lgoqTQ/3QO7J4aM_ryNCopMHIJKQg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+  </div>
+</div>
+
+<script>
+(function() {
+  var btns = document.querySelectorAll('#wpgc-tabs-g .tab-btn');
+  var frame = document.getElementById('wpgc-frame-g');
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      btns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      frame.src = btn.getAttribute('data-src');
+    });
+  });
+})();
+</script>
+
+ <!-- ==================== WPGLASSCO FOOTER ==================== --> 
+<footer class="wp-footer"> <div class="wp-footer-inner"> <div class="wp-footer-brand"> <img src="assets/images/logo.png" alt="WPGlassCo"> <p> Premium handcrafted glass, functional art, and a community built around the craft. </p> <div class="wp-footer-socials"> <a href="#">Instagram</a> <a href="#">X</a> <a href="#">Facebook</a> </div> </div> <div class="wp-footer-links"> <h3> Shop </h3> <a href="shop.html"> Collections </a> <a href="/requests.html"> Custom Requests </a> <a href="/merch.html"> Merch </a> </div> <div class="wp-footer-links"> <h3> Learn </h3> <a href="/eled.html"> Educate & Elevate </a> <a href="/faq.html"> FAQ </a> <a href="/policies.html"> Policies </a> </div> <div class="wp-footer-links"> <h3> Community </h3> <a href="/wpglassclub.html"> WP Glass Club </a> <a href="/wholesale.html"> Wholesale </a> <a href="contactwp.html"> Contact </a> </div> </div> <div class="wp-footer-bottom"> <span> © 2026 WPGlassCo. All Rights Reserved. </span> <span> Crafted For The Culture. </span> </div> </footer> </body> </html>
 
