@@ -1,1 +1,621 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>WP Glass Co</title> <link rel="stylesheet" href="css/global.css"> <style> @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&display=swap'); :root { --wp-cyan:#00E5FF; --wp-green:#08E2A5; --wp-purple:#B05CFF; --wp-pink:#FF4FD8; --wp-violet:#C084FC; } body { padding-top:100px; } #wp-header { position:fixed; top:0; left:0; width:100%; z-index:99999; font-family:'Urbanist',sans-serif; background: linear-gradient( 180deg, rgba(0,0,0,.96), rgba(8,8,12,.82), rgba(0,0,0,.35) ); backdrop-filter:blur(18px); border-bottom:1px solid rgba(255,255,255,.08); } #wp-header::after { content:""; position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient( 90deg, #B05CFF, #00E5FF, #08E2A5, #FF4FD8, #B05CFF ); background-size:300%; animation:wpGlow 8s linear infinite; } @keyframes wpGlow { 0% {background-position:0%} 100% {background-position:300%} } .wp-header-inner { max-width:1400px; height:100px; margin:auto; padding:0 35px; display:flex; align-items:center; justify-content:space-between; gap:25px; } /* LOGO */ .wp-logo img { height:155px; width:auto; display:block; transition:.3s ease; } .wp-logo:hover img { filter: drop-shadow(0 0 20px #08E2A5) drop-shadow(0 0 35px rgba(8,226,165,.5)); transform:scale(1.05); } /* SEARCH */ .wp-search { flex:1; max-width:350px; } .wp-search input { width:100%; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15); border-radius:30px; padding:12px 20px; color:white; font-family:'Urbanist'; outline:none; } .wp-search input::placeholder { color:rgba(255,255,255,.45); } .wp-search input:focus { border-color:#00E5FF; box-shadow:0 0 20px rgba(0,229,255,.35); } /* NAV */ .wp-menu { display:flex; align-items:center; gap:12px; list-style:none; margin:0; padding:0; } .wp-menu > li { position:relative; } .wp-menu > li > a { color:rgba(255,255,255,.65); text-decoration:none; text-transform:uppercase; font-size:18px; font-weight:800; letter-spacing:.12em; padding:15px; transition:.25s ease; } .wp-menu > li:nth-child(1):hover > a { color:#FF4FD8; text-shadow:0 0 15px #FF4FD8; } .wp-menu > li:nth-child(2):hover > a { color:#08E2A5; text-shadow:0 0 15px #08E2A5; } .wp-menu > li:nth-child(3):hover > a { color:#00E5FF; text-shadow:0 0 15px #00E5FF; } .wp-menu > li:nth-child(4):hover > a { color:#C084FC; text-shadow:0 0 15px #C084FC; } /* DROPDOWN */ .wp-dropdown { display:none; position:absolute; top:45px; left:50%; transform:translateX(-50%); min-width:230px; background:rgba(10,10,14,.95); border:1px solid rgba(255,255,255,.15); border-radius:14px; padding:10px 0; box-shadow: 0 0 30px rgba(0,0,0,.8); backdrop-filter:blur(20px); } .wp-menu li:hover .wp-dropdown { display:block; } .wp-dropdown a { display:block; padding:12px 20px; color:rgba(255,255,255,.55); text-decoration:none; font-size:18px; text-transform:uppercase; } .wp-dropdown a:hover { color:white; background:rgba(255,255,255,.08); } /* ICONS */ .wp-actions { display:flex; gap:15px; } .wp-actions a { color:rgba(255,255,255,.6); text-decoration:none; font-size:18px; text-transform:uppercase; transition:.25s; } .wp-actions a:hover { color:#00E5FF; text-shadow:0 0 20px #00E5FF; } /* MOBILE */ @media(max-width:1000px){ .wp-search { display:none; } .wp-menu { display:none; } .wp-header-inner { padding:0 20px; } } </style> <header id="wp-header"> <div class="wp-header-inner"> <a class="wp-logo" href="/"> <img src="assets/images/logo.png" alt="WPGlassCo"> </a> <div class="wp-search"> <input type="search" placeholder="Search WPGlassCo..."> </div> <ul class="wp-menu"> <li> <a href="https://wedplace.github.io/WPGlassCo/shop.html">Shop</a> <div class="wp-dropdown"> <a href="/wpcurations">Concentrate Pieces</a> <a href="/wpcurations">Flower Pieces</a> <a href="/wpcurations">E-Rig Pieces</a> <a href="/wpcurations">Merch</a> <a href="/wpcurations">Curations</a> <a href="/requests">Request Form</a> </div> </li> <li> <a href="#">Wholesale</a> <div class="wp-dropdown"> <a href="/information">Information</a> <a href="#">Application</a> <a href="/wsbundle">Catalog</a> </div> </li> <li> <a href="#">Elevate & Educate</a> <div class="wp-dropdown"> <a href="/educate">Concentrates</a> <a href="/educate">Harm Reduction</a> <a href="/educate">Glass & Smokeware</a> <a href="/educate">Sources We Trust</a> </div> </li> <li> <a href="#">About Us</a> <div class="wp-dropdown"> <a href="/learn-more">Learn More</a> <a href="/faq-1">FAQ</a> <a href="/returns">Policies</a> <a href="/ratings">Reviews</a> </div> </li> </ul> <div class="wp-actions"> <a href="#">♡</a> <a href="#">🛒</a> <a href="#">◯</a> </div> <button class="wp-mobile-toggle"> ☰ </button> </div></header>
+<!-- ==========================================
+concgrid
+========================================== -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+.wpg-wrap{font-family:'Montserrat',sans-serif;color:#f0f0f0;padding:2.5rem 1.25rem;background:#080808;}
+.wpg-category-label{font-size:1.5rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:linear-gradient(90deg,#08E2A5 0%,#b038fa 60%,#07EEF0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;max-width:1100px;margin:0 auto 1.5rem;padding-left:1rem;border-left:3px solid #08E2A5;filter:drop-shadow(0 0 10px rgba(8,226,165,0.35));}
+.wpg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.25rem;max-width:1100px;margin:0 auto;}
+
+/* FLIP TILES */
+.wpg-flip-wrap{perspective:1000px;height:340px;}
+.wpg-flip{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1);}
+.wpg-flip-wrap:hover .wpg-flip{transform:rotateY(180deg);}
+.wpg-flip-front,.wpg-flip-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:10px;overflow:hidden;}
+.wpg-flip-front{background:linear-gradient(155deg,#0e0e0e 0%,#121a16 60%,#111118 100%);border:1px solid #1a2620;display:flex;flex-direction:column;transition:border-color 0.3s,box-shadow 0.3s;}
+.wpg-flip-wrap:hover .wpg-flip-front{border-color:#08E2A5;box-shadow:0 0 0 1px rgba(8,226,165,0.25),0 0 20px rgba(8,226,165,0.18),0 0 55px rgba(8,226,165,0.07);}
+.wpg-flip-front .img-wrap{position:relative;width:100%;flex:1;background:#0f0f0f;overflow:hidden;}
+.wpg-flip-front .img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;}
+.wpg-flip-wrap:hover .wpg-flip-front .img-wrap img{transform:scale(1.05);}
+.wpg-sold-overlay{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;background:rgba(8,8,8,0.68);backdrop-filter:blur(2px);}
+.wpg-sold-badge{font-size:0.95rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#fff;padding:0.45rem 1.4rem;border:1.5px solid rgba(255,184,230,0.6);background:linear-gradient(135deg,rgba(240,2,236,0.45),rgba(176,56,250,0.35));box-shadow:0 0 20px rgba(240,2,236,0.4),inset 0 0 12px rgba(240,2,236,0.08);}
+.wpg-flip-front .tile-body{padding:0.75rem 1rem 0.9rem;display:flex;flex-direction:column;gap:0.35rem;}
+.wpg-flip-front .tile-name{font-size:0.8rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#ddd;line-height:1.35;}
+.wpg-flip-front .tile-price{font-size:1.05rem;font-weight:600;color:#08E2A5;text-shadow:0 0 10px rgba(8,226,165,0.55),0 0 28px rgba(8,226,165,0.18);}
+.wpg-flip-back{background:linear-gradient(155deg,#0e0e0e 0%,#0d1a14 60%,#0f0f18 100%);border:1px solid #08E2A5;transform:rotateY(180deg);display:flex;flex-direction:column;padding:1.1rem 1rem;box-shadow:0 0 0 1px rgba(8,226,165,0.2),0 0 30px rgba(8,226,165,0.1);}
+.back-name{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#08E2A5;margin-bottom:0.15rem;}
+.back-price{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:0.55rem;}
+.back-sku{font-size:0.56rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#2e2e2e;margin-bottom:0.3rem;}
+.back-brand{font-size:0.58rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#b038fa;margin-bottom:0.55rem;}
+.back-desc{font-size:0.62rem;color:#777;line-height:1.55;flex:1;margin-bottom:0.8rem;}
+.back-btns{display:flex;flex-direction:column;gap:0.4rem;}
+.back-detail{width:100%;padding:0.45rem;background:transparent;border:1px solid #08E2A5;color:#08E2A5;font-family:'Montserrat',sans-serif;font-size:0.56rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:5px;transition:all 0.2s;text-align:center;}
+.back-detail:hover{background:rgba(8,226,165,0.1);box-shadow:0 0 12px rgba(8,226,165,0.25);}
+.back-detail.dim{opacity:0.2;cursor:default;pointer-events:none;}
+.back-offer{width:100%;padding:0.45rem;background:transparent;border:1px solid #b038fa;color:#cf75ff;font-family:'Montserrat',sans-serif;font-size:0.56rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:5px;transition:all 0.2s;text-align:center;}
+.back-offer:hover{background:rgba(176,56,250,0.15);box-shadow:0 0 12px rgba(176,56,250,0.3);}
+.back-offer.dim{opacity:0.2;cursor:default;pointer-events:none;}
+.back-pp form{display:flex;width:100%;}
+.back-pp input[type=submit]{width:100%;padding:0.45rem;background:linear-gradient(135deg,#003087,#009cde);color:#fff;font-family:'Montserrat',sans-serif;font-size:0.56rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border-radius:5px;border:none;cursor:pointer;min-width:unset!important;height:auto!important;}
+.back-pp img,.back-pp section{display:none!important;}
+
+/* SLIDE PANEL */
+.wpg-panel-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;backdrop-filter:blur(4px);}
+.wpg-panel-bg.open{display:block;}
+.wpg-panel{position:fixed;top:0;right:0;bottom:0;width:min(480px,100vw);background:linear-gradient(175deg,#0a0a0a 0%,#0d1a14 50%,#0f0f18 100%);border-left:1px solid #08E2A5;box-shadow:-4px 0 40px rgba(8,226,165,0.12);overflow-y:auto;transform:translateX(100%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);z-index:10000;}
+.wpg-panel-bg.open .wpg-panel{transform:translateX(0);}
+.wpg-panel-inner{padding:1.75rem 1.5rem 2.5rem;}
+.wpg-panel-close{position:absolute;top:1.25rem;right:1.25rem;background:none;border:none;color:#444;font-size:1.1rem;cursor:pointer;transition:color 0.15s;z-index:1;}
+.wpg-panel-close:hover{color:#08E2A5;}
+.panel-img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;border:1px solid #1a2620;margin-bottom:1.5rem;display:block;}
+.panel-eyebrow{font-size:0.58rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#08E2A5;margin-bottom:0.3rem;}
+.panel-name{font-size:1.4rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#f0f0f0;margin-bottom:0.25rem;line-height:1.15;}
+.panel-price{font-size:1.6rem;font-weight:700;color:#08E2A5;text-shadow:0 0 16px rgba(8,226,165,0.4);margin-bottom:1rem;}
+.panel-specs{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.1rem;}
+.spec-tag{font-size:0.58rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#08E2A5;border:1px solid rgba(8,226,165,0.3);border-radius:4px;padding:0.3rem 0.6rem;background:rgba(8,226,165,0.05);}
+.panel-desc{font-size:0.78rem;color:#999;line-height:1.7;margin-bottom:1.5rem;}
+.panel-btns{display:flex;gap:0.6rem;margin-bottom:2rem;}
+.panel-offer-btn{flex:1;padding:0.65rem 0.5rem;background:transparent;border:1px solid #b038fa;color:#cf75ff;font-family:'Montserrat',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:5px;transition:all 0.2s;}
+.panel-offer-btn:hover{background:rgba(176,56,250,0.18);box-shadow:0 0 18px rgba(176,56,250,0.3);}
+.panel-pp{flex:1;}
+.panel-pp form{display:flex;width:100%;}
+.panel-pp input[type=submit]{width:100%;padding:0.65rem 0.5rem;background:linear-gradient(135deg,#003087,#009cde);color:#fff;font-family:'Montserrat',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border-radius:5px;border:none;cursor:pointer;min-width:unset!important;height:auto!important;}
+.panel-pp img,.panel-pp section{display:none!important;}
+.sugg-label{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#444;margin-bottom:0.9rem;padding-bottom:0.5rem;border-bottom:1px solid #1a1a1a;}
+.sugg-grid{display:flex;flex-direction:column;gap:0.75rem;}
+.sugg-tile{display:flex;gap:0.85rem;align-items:center;background:linear-gradient(135deg,#0e0e0e,#111a15);border:1px solid #1a2620;border-radius:8px;padding:0.7rem;transition:border-color 0.2s,box-shadow 0.2s;}
+.sugg-tile:hover{border-color:#08E2A5;box-shadow:0 0 14px rgba(8,226,165,0.1);}
+.sugg-img{width:64px;height:64px;object-fit:cover;border-radius:5px;flex-shrink:0;}
+.sugg-info{flex:1;min-width:0;}
+.sugg-name{font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#ddd;margin-bottom:0.15rem;line-height:1.3;}
+.sugg-sub{font-size:0.54rem;color:#444;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.25rem;}
+.sugg-price{font-size:0.85rem;font-weight:600;color:#08E2A5;margin-bottom:0.45rem;}
+.sugg-btns{display:flex;gap:0.35rem;}
+.sugg-offer-btn{padding:0.3rem 0.55rem;background:transparent;border:1px solid #b038fa;color:#cf75ff;font-family:'Montserrat',sans-serif;font-size:0.52rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all 0.2s;white-space:nowrap;}
+.sugg-offer-btn:hover{background:rgba(176,56,250,0.15);}
+.sugg-pp input[type=submit]{padding:0.3rem 0.55rem;background:linear-gradient(135deg,#003087,#009cde);color:#fff;font-family:'Montserrat',sans-serif;font-size:0.52rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-radius:4px;border:none;cursor:pointer;white-space:nowrap;min-width:unset!important;height:auto!important;}
+.sugg-pp img,.sugg-pp section{display:none!important;}
+
+/* MODAL */
+.wpg-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:99999;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.wpg-modal-bg.wpg-open{display:flex;}
+.wpg-modal{background:linear-gradient(150deg,#0e0e0e 0%,#131a17 100%);border:1px solid #08E2A5;border-radius:12px;padding:2rem 1.75rem 1.75rem;width:92%;max-width:400px;position:relative;box-shadow:0 0 0 1px rgba(8,226,165,0.15),0 0 40px rgba(8,226,165,0.2),0 0 80px rgba(176,56,250,0.08),0 30px 60px rgba(0,0,0,0.6);animation:wpgIn 0.2s ease;}
+@keyframes wpgIn{from{opacity:0;transform:translateY(12px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+.wpg-modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:#444;font-size:1rem;cursor:pointer;transition:color 0.15s;}
+.wpg-modal-close:hover{color:#ccc;}
+.wpg-modal-eyebrow{font-size:0.58rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#08E2A5;text-shadow:0 0 10px rgba(8,226,165,0.45);margin-bottom:0.3rem;}
+.wpg-modal-pname{font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#eee;margin-bottom:1.5rem;line-height:1.25;}
+.wpg-modal label{display:block;font-size:0.58rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#555;margin-bottom:0.35rem;}
+.wpg-modal input{width:100%;background:#0a0a0a;border:1px solid #1e1e1e;border-radius:5px;color:#eee;font-family:'Montserrat',sans-serif;font-size:0.85rem;padding:0.65rem 0.85rem;margin-bottom:1rem;outline:none;transition:border-color 0.2s,box-shadow 0.2s;}
+.wpg-modal input:focus{border-color:#08E2A5;box-shadow:0 0 12px rgba(8,226,165,0.18);}
+.wpg-modal input::placeholder{color:#2a2a2a;}
+.wpg-modal-submit{width:100%;padding:0.72rem;background:linear-gradient(135deg,#08E2A5 0%,#b038fa 100%);border:none;border-radius:5px;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:box-shadow 0.2s,opacity 0.15s;box-shadow:0 0 20px rgba(8,226,165,0.2),0 0 20px rgba(176,56,250,0.15);margin-top:0.25rem;}
+.wpg-modal-submit:hover{box-shadow:0 0 30px rgba(8,226,165,0.38),0 0 30px rgba(176,56,250,0.3);opacity:0.92;}
+.wpg-modal-note{font-size:0.56rem;color:#383838;text-align:center;margin-top:0.9rem;}
+</style>
+
+<!-- OFFER MODAL -->
+<div class="wpg-modal-bg" id="wpgModal2">
+  <div class="wpg-modal">
+    <button class="wpg-modal-close" onclick="wpgCloseModal()">✕</button>
+    <div class="wpg-modal-eyebrow">WPGlassCo</div>
+    <div class="wpg-modal-pname" id="wpgModalPname"></div>
+    <label>Phone or Email</label>
+    <input type="text" id="wpgModalContact" placeholder="you@email.com or 210-555-0000">
+    <label>Your Offer</label>
+    <input type="text" id="wpgModalOffer" placeholder="$ amount">
+    <button class="wpg-modal-submit" onclick="wpgSubmitModal()">Send Offer →</button>
+    <div class="wpg-modal-note">We'll get back to you within 24hrs.</div>
+  </div>
+</div>
+
+<!-- SLIDE PANEL -->
+<div class="wpg-panel-bg" id="wpgPanelBg" onclick="handlePanelBgClick(event)">
+  <div class="wpg-panel" id="wpgPanel">
+    <button class="wpg-panel-close" onclick="closePanel()">✕</button>
+    <div class="wpg-panel-inner" id="wpgPanelInner"></div>
+  </div>
+</div>
+
+<div class="wpg-wrap">
+  <div class="wpg-category-label">Concentrates &amp; Accessories</div>
+  <div class="wpg-grid">
+
+    <!-- The Annunaki | WPC-D-5SC | ML Glass | $165 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-annunaki">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/annunaki.png" alt="The Annunaki">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">The Annunaki</div><div class="tile-price">$165</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">The Annunaki</div><div class="back-price">$165</div>
+          <div class="back-sku">WPC-D-5SC</div><div class="back-brand">ML Glass</div>
+          <div class="back-desc">14mm female. Handblown borosilicate. Looks like a shelf piece, hits like a workhorse. Unique form that surprises every time you pick it up.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Make an Offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- T.A.G. Super Straight Rig | WPC-D-936 | T.A.G. | $95 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-tag-super-straight">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/tag8.png" alt="T.A.G. Super Straight Rig">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">T.A.G. Super Straight Rig</div><div class="tile-price">$95</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">T.A.G. Super Straight</div><div class="back-price">$95</div>
+          <div class="back-sku">WPC-D-936</div><div class="back-brand">T.A.G. Glass</div>
+          <div class="back-desc">14mm female. Super thick borosilicate. T.A.G. builds rigs that last — this one is borderline indestructible and pulls clean every time.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Make an Offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- T.A.G. Bellow Bubble Rig | WPC-D-989 | $104 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-tag-bellow-bubble">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/tagbell.png" alt="T.A.G. Bellow Bubble Rig">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">T.A.G. Bellow Bubble Rig</div><div class="tile-price">$104</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">T.A.G. Bellow Bubble</div><div class="back-price">$104</div>
+          <div class="back-sku">WPC-D-989</div><div class="back-brand">T.A.G. Glass</div>
+          <div class="back-desc">Thick borosilicate bellow bubble chamber. T.A.G. quality built to last. Currently sold out.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Make an Offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Paradox | WPC-D-506 | ML Glass | $125 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-paradox">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/paradox.png" alt="The Paradox">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">The Paradox</div><div class="tile-price">$125</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">The Paradox</div><div class="back-price">$125</div>
+          <div class="back-sku">WPC-D-506</div><div class="back-brand">ML Glass</div>
+          <div class="back-desc">14mm female. Handblown borosilicate. Loop chamber delivers perfect cooling in a compact footprint. Small but mighty is underselling it.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Make an Offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Venturi | WPC-D-503 | ML Glass | $79 -->
+    <div class="wpg-flip-wrap" id="tile-venturi">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap"><img src="assets/images/venturi.png alt="The Venturi"></div>
+          <div class="tile-body"><div class="tile-name">The Venturi</div><div class="tile-price">$79</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">The Venturi</div><div class="back-price">$79</div>
+          <div class="back-sku">WPC-D-503</div><div class="back-brand">ML Glass</div>
+          <div class="back-desc">14mm female. Handblown borosilicate. Funnel chamber clouds up hard with a splash guard that actually works. Flower or concentrate.</div>
+          <div class="back-btns">
+            <button class="back-detail" onclick="openPanel('venturi')">View Details →</button>
+            <button class="back-offer" onclick="wpgOpenModal('The Venturi')">Make an Offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fully Faceted Tower | WPC-B-343 | Terporium | $64 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-fully-faceted-tower">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/fullfac.png" alt="Fully Faceted Tower">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">Fully Faceted Tower</div><div class="tile-price">$64</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Fully Faceted Tower</div><div class="back-price">$64</div>
+          <div class="back-sku">WPC-B-343</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Fully faceted borosilicate tower banger. Every face cut for maximum surface area and heat retention. Pairs with any 14mm rig.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Sold Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seamless Slurper | WPC-B-353 | Terporium | $56 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-seamless-slurper">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/seamless.png" alt="Seamless Slurper">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">Seamless Slurper</div><div class="tile-price">$56</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Seamless Slurper</div><div class="back-price">$56</div>
+          <div class="back-sku">WPC-B-353</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Clean seamless construction. Premium Terporium slurper build. Sold out — check back soon.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Make an Offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V3 Slurper | WPC-B-335 | Terporium | $44 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-v3-slurper">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/v3.png" alt="V3 Slurper">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">V3 Slurper</div><div class="tile-price">$44</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">V3 Slurper</div><div class="back-price">$44</div>
+          <div class="back-sku">WPC-B-335</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Third-gen slurper design. Refined airflow and terp retention. Sold out — restocking soon.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Make an Offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 45 Degree Slurper | WPC-B-479 | Terporium | $24 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-45-degree-slurper">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/45.png" alt="45 Degree Slurper">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">45 Degree Slurper</div><div class="tile-price">$24</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">45 Degree Slurper</div><div class="back-price">$24</div>
+          <div class="back-sku">WPC-B-479</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Classic 45° angled slurper. Solid Terporium build. Currently sold out.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Make an Offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terp Slide | WPC-B-563 | Terporium | $24 -->
+    <div class="wpg-flip-wrap" id="tile-terp-slide">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap"><img src="assets/images/terpslide.png" alt="Terp Slide"></div>
+          <div class="tile-body"><div class="tile-name">Terp Slide</div><div class="tile-price">$24</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Terp Slide</div><div class="back-price">$24</div>
+          <div class="back-sku">WPC-B-563</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Clean terp slide for low-temp sessions. Fits 14mm rigs. Easy to load, easy to clean. 3 in stock.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <div class="back-pp"><form action="https://www.paypal.com/ncp/payment/K4D6UHYQMPWD8" method="post" target="_blank"><input type="submit" value="Buy Now"/><img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt=""/></form></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Green Dichro Slurper Set | WPC-I-074 | Terporium | $28 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-green-dichro-slurper-set">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/green.png" alt="Green Dichro Slurper Set">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">Green Dichro Slurper Set</div><div class="tile-price">$28</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Green Dichro Slurper Set</div><div class="back-price">$28</div>
+          <div class="back-sku">WPC-I-074</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Dichroic glass slurper insert set in green. Catches light from every angle. Pairs with any 14mm slurper banger.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Sold Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blue Swirl Valve Shroom Set | WPC-I-049 | Terporium | $16 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-blue-swirl-valve-shroom">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/blueshroom.png" alt="Blue Swirl Valve Shroom Set">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">Blue Swirl Valve Shroom Set</div><div class="tile-price">$16</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Blue Swirl Valve Shroom</div><div class="back-price">$16</div>
+          <div class="back-sku">WPC-I-049</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Blue swirl valve shroom insert set. Unique mushroom profile for terp pooling. Sold out.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Make an Offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zebra Pillar | WPC-I-061 | Terporium | $12 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-zebra-pillar">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/zebra.png" alt="Zebra Pillar">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">Zebra Pillar</div><div class="tile-price">$12</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Zebra Pillar</div><div class="back-price">$12</div>
+          <div class="back-sku">WPC-I-061</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Black and white zebra stripe pillar insert for terp retention. Pairs with any 14mm slurper banger.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Sold Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lucid CFL w/ Opal Topper Cap | WPC-C-570 | Terporium | $24 -->
+    <div class="wpg-flip-wrap" id="tile-lucid-cfl-opal-cap">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap"><img src="assets/images/opalluccid.png" alt="Lucid CFL w/ Opal Topper Cap"></div>
+          <div class="tile-body"><div class="tile-name">Lucid CFL w/ Opal Topper Cap</div><div class="tile-price">$24</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Lucid CFL Opal Cap</div><div class="back-price">$24</div>
+          <div class="back-sku">WPC-C-570</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">CFL reactive glass with opal topper. Shifts color under different light sources. Directional carb cap for slurper bangers.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <div class="back-pp"><form action="https://www.paypal.com/ncp/payment/Z7DDURHAWD6N2" method="post" target="_blank"><input type="submit" value="Buy Now"/><img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt=""/></form></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Encased Opal Marble | WPC-C-009 | Terporium | $16 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-encased-opal-marble">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/opalo.png" alt="Encased Opal Marble">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">Encased Opal Marble</div><div class="tile-price">$16</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Encased Opal Marble</div><div class="back-price">$16</div>
+          <div class="back-sku">WPC-C-009</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Borosilicate marble with encased opal. Sits on top of any slurper banger to direct airflow and look insane doing it.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Sold Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Surface Enhanced Pillar | WPC-I-081 | Terporium | $12 -->
+    <div class="wpg-flip-wrap" id="tile-surface-enhanced-pillar">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap"><img src="assets/images/sepillar.png" alt="Surface Enhanced Pillar"></div>
+          <div class="tile-body"><div class="tile-name">Surface Enhanced Pillar</div><div class="tile-price">$12</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Surface Enhanced Pillar</div><div class="back-price">$12</div>
+          <div class="back-sku">WPC-I-081</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Textured surface pillar insert. Extra surface area for better terp vaporization at lower temps.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <div class="back-pp"><form action="https://www.paypal.com/ncp/payment/LDDCE66VB9QCL" method="post" target="_blank"><input type="submit" value="Buy Now"/><img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt=""/></form></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hollow Vortex Pillar | WPC-I-111 | Terporium | $12 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-hollow-vortex-pillar">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/vortexpillar.png" alt="Hollow Vortex Pillar">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">Hollow Vortex Pillar</div><div class="tile-price">$12</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Hollow Vortex Pillar</div><div class="back-price">$12</div>
+          <div class="back-sku">WPC-I-111</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Hollow vortex design spins airflow through the insert. Maximizes terp contact and vapor production.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Sold Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bubble Cap – Lucid CFL | WPC-C-700 | Terporium | $12 -->
+    <div class="wpg-flip-wrap" id="tile-bubble-cap-lucid-cfl">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap"><img src="assets/images/luccidbub.png" alt="Bubble Cap – Lucid CFL"></div>
+          <div class="tile-body"><div class="tile-name">Bubble Cap – Lucid CFL</div><div class="tile-price">$12</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Bubble Cap – Lucid CFL</div><div class="back-price">$12</div>
+          <div class="back-sku">WPC-C-700</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">CFL reactive bubble cap. Color shifts under different light. Fits standard 14mm bangers with a good seal.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <div class="back-pp"><form action="https://www.paypal.com/ncp/payment/RS9VX9QCVHUN4" method="post" target="_blank"><input type="submit" value="Buy Now"/><img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt=""/></form></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bubble Cap – Neo | WPC-C-005 | Terporium | $12 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-bubble-cap-neo">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/neobub.png" alt="Bubble Cap – Neo">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">Bubble Cap – Neo</div><div class="tile-price">$12</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Bubble Cap – Neo</div><div class="back-price">$12</div>
+          <div class="back-sku">WPC-C-005</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Neo color bubble cap. Vibrant reactive finish. Sold out — check back soon.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Make an Offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bubble Cap – Slyme | WPC-C-007 | Terporium | $12 — SOLD OUT -->
+    <div class="wpg-flip-wrap" id="tile-bubble-cap-slyme">
+      <div class="wpg-flip">
+        <div class="wpg-flip-front">
+          <div class="img-wrap">
+            <img src="assets/images/slyme.png" alt="Bubble Cap – Slyme">
+            <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+          </div>
+          <div class="tile-body"><div class="tile-name">Bubble Cap – Slyme</div><div class="tile-price">$12</div></div>
+        </div>
+        <div class="wpg-flip-back">
+          <div class="back-name">Bubble Cap – Slyme</div><div class="back-price">$12</div>
+          <div class="back-sku">WPC-C-007</div><div class="back-brand">Terporium</div>
+          <div class="back-desc">Slyme green bubble cap. Classic color, solid seal. Sold out.</div>
+          <div class="back-btns">
+            <button class="back-detail dim">View Details →</button>
+            <button class="back-offer dim">Make an Offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const WPG_EMAIL='elevate@wpglassco.com';
+
+const PANELS={
+  venturi:{
+    img:'https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/a9343e41-4447-4d9c-9a1e-51389a43224b/7C33333F-A555-456E-8D9E-0B5B0C13D799.png?content-type=image%2Fpng',
+    eyebrow:'ML Glass · WPC-D-503',name:'The Venturi',price:'$79',
+    specs:['14mm Female','Borosilicate','Splash Guard','Flower & Concentrate'],
+    desc:"The Venturi's funnel chamber pulls vapor into a tight, cloud-heavy hit every time. Built-in splash guard is genuinely effective — not an afterthought. Runs flower or dabs with no setup changes. Handblown borosilicate, 14mm female joint.",
+    ppAction:'https://www.paypal.com/ncp/payment/KTS6LM66PBR5C',
+    suggested:[
+      {img:'https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/59624946-2196-4d16-a59c-c126746ac712/7A860711-E327-4BAB-A5A2-49B6D4B4F218.PNG?content-type=image%2Fpng',name:'The Mandala Effect',sub:'Terporium Set · WPC-M2',price:'$75',ppAction:'https://www.paypal.com/ncp/payment/VJ99KYHFRJQMN'},
+      {img:'https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/301c2073-b22c-4c35-906f-356356999709/Untitled+design.png?content-type=image%2Fpng',name:'Terp Slide',sub:'WPC-B-563 · Terporium',price:'$24',ppAction:'https://www.paypal.com/ncp/payment/K4D6UHYQMPWD8'}
+    ]
+  }
+};
+
+function buildSugg(s){
+  return '<div class="sugg-tile"><img class="sugg-img" src="'+s.img+'" alt="'+s.name+'"><div class="sugg-info"><div class="sugg-name">'+s.name+'</div><div class="sugg-sub">'+s.sub+'</div><div class="sugg-price">'+s.price+'</div><div class="sugg-btns"><button class="sugg-offer-btn" onclick="wpgOpenModal(\''+s.name+'\')">Offer</button><div class="sugg-pp"><form action="'+s.ppAction+'" method="post" target="_blank"><input type="submit" value="Buy Now"/></form></div></div></div></div>';
+}
+
+function buildPanel(key){
+  var p=PANELS[key];
+  var specs=p.specs.map(function(s){return '<span class="spec-tag">'+s+'</span>';}).join('');
+  var suggs=p.suggested.map(buildSugg).join('');
+  return '<img class="panel-img" src="'+p.img+'" alt="'+p.name+'"><div class="panel-eyebrow">'+p.eyebrow+'</div><div class="panel-name">'+p.name+'</div><div class="panel-price">'+p.price+'</div><div class="panel-specs">'+specs+'</div><div class="panel-desc">'+p.desc+'</div><div class="panel-btns"><button class="panel-offer-btn" onclick="wpgOpenModal(\''+p.name+'\')">Make an Offer</button><div class="panel-pp"><form action="'+p.ppAction+'" method="post" target="_blank" style="display:flex;width:100%;"><input type="submit" value="Buy Now" style="width:100%;padding:0.65rem 0.5rem;background:linear-gradient(135deg,#003087,#009cde);color:#fff;font-family:Montserrat,sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border-radius:5px;border:none;cursor:pointer;"/></form></div></div><div class="sugg-label">You Might Also Like</div><div class="sugg-grid">'+suggs+'</div>';
+}
+
+function openPanel(key){
+  document.getElementById('wpgPanelInner').innerHTML=buildPanel(key);
+  document.getElementById('wpgPanelBg').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePanel(){
+  document.getElementById('wpgPanelBg').classList.remove('open');
+  document.body.style.overflow='';
+}
+function handlePanelBgClick(e){if(e.target===document.getElementById('wpgPanelBg'))closePanel();}
+function wpgOpenModal(name){
+  document.getElementById('wpgModalPname').textContent=name;
+  document.getElementById('wpgModalContact').value='';
+  document.getElementById('wpgModalOffer').value='';
+  document.getElementById('wpgModal2').classList.add('wpg-open');
+  document.body.style.overflow='hidden';
+}
+function wpgCloseModal(){
+  document.getElementById('wpgModal2').classList.remove('wpg-open');
+  document.body.style.overflow='';
+}
+function wpgSubmitModal(){
+  var product=document.getElementById('wpgModalPname').textContent;
+  var contact=document.getElementById('wpgModalContact').value.trim();
+  var offer=document.getElementById('wpgModalOffer').value.trim();
+  if(!contact||!offer){alert('Please fill out both fields.');return;}
+  var subject=encodeURIComponent('Offer on: '+product);
+  var body=encodeURIComponent('Product: '+product+'\nOffer: $'+offer+'\nContact: '+contact);
+  window.location.href='mailto:'+WPG_EMAIL+'?subject='+subject+'&body='+body;
+  wpgCloseModal();
+}
+document.getElementById('wpgModal2').addEventListener('click',function(e){if(e.target===this)wpgCloseModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){wpgCloseModal();closePanel();}});
+</script>
+
+
+
+ <!-- ========================================== WPGLASSCO FOOTER ========================================== --> <footer class="wp-footer"> <div class="wp-footer-inner"> <div class="wp-footer-brand"> <img src="assets/images/logo.png" alt="WPGlassCo"> <p> Premium handcrafted glass, functional art, and a community built around the craft. </p> <div class="wp-footer-socials"> <a href="#">Instagram</a> <a href="#">X</a> <a href="#">Facebook</a> </div> </div> <div class="wp-footer-links"> <h3> Shop </h3> <a href="/wpcurations"> Collections </a> <a href="/requests"> Custom Requests </a> <a href="/merch"> Merch </a> </div> <div class="wp-footer-links"> <h3> Learn </h3> <a href="/educate"> Educate & Elevate </a> <a href="/faq-1"> FAQ </a> <a href="/returns"> Policies </a> </div> <div class="wp-footer-links"> <h3> Community </h3> <a href="/wpglassclub"> WP Glass Club </a> <a href="/wholesale"> Wholesale </a> <a href="#"> Contact </a> </div> </div> <div class="wp-footer-bottom"> <span> © 2026 WPGlassCo. All Rights Reserved. </span> <span> Crafted For The Culture. </span> </div> </footer> </body> </html>
+
 
