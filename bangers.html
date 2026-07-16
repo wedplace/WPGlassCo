@@ -1,1 +1,496 @@
+ <!-- ==================== WPGLASSCO HEADER========================= --> 
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>WP Glass Co</title> <link rel="stylesheet" href="css/global.css"> <style> @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&display=swap'); :root { --wp-cyan:#00E5FF; --wp-green:#08E2A5; --wp-purple:#B05CFF; --wp-pink:#FF4FD8; --wp-violet:#C084FC; } body { padding-top:100px; } #wp-header { position:fixed; top:0; left:0; width:100%; z-index:99999; font-family:'Urbanist',sans-serif; background: linear-gradient( 180deg, rgba(0,0,0,.96), rgba(8,8,12,.82), rgba(0,0,0,.35) ); backdrop-filter:blur(18px); border-bottom:1px solid rgba(255,255,255,.08); } #wp-header::after { content:""; position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient( 90deg, #B05CFF, #00E5FF, #08E2A5, #FF4FD8, #B05CFF ); background-size:300%; animation:wpGlow 8s linear infinite; } @keyframes wpGlow { 0% {background-position:0%} 100% {background-position:300%} } .wp-header-inner { max-width:1400px; height:100px; margin:auto; padding:0 35px; display:flex; align-items:center; justify-content:space-between; gap:25px; } /* LOGO */ .wp-logo img { height:155px; width:auto; display:block; transition:.3s ease; } .wp-logo:hover img { filter: drop-shadow(0 0 20px #08E2A5) drop-shadow(0 0 35px rgba(8,226,165,.5)); transform:scale(1.05); } /* SEARCH */ .wp-search { flex:1; max-width:350px; } .wp-search input { width:100%; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15); border-radius:30px; padding:12px 20px; color:white; font-family:'Urbanist'; outline:none; } .wp-search input::placeholder { color:rgba(255,255,255,.45); } .wp-search input:focus { border-color:#00E5FF; box-shadow:0 0 20px rgba(0,229,255,.35); } /* NAV */ .wp-menu { display:flex; align-items:center; gap:12px; list-style:none; margin:0; padding:0; } .wp-menu > li { position:relative; } .wp-menu > li > a { color:rgba(255,255,255,.65); text-decoration:none; text-transform:uppercase; font-size:18px; font-weight:800; letter-spacing:.12em; padding:15px; transition:.25s ease; } .wp-menu > li:nth-child(1):hover > a { color:#FF4FD8; text-shadow:0 0 15px #FF4FD8; } .wp-menu > li:nth-child(2):hover > a { color:#08E2A5; text-shadow:0 0 15px #08E2A5; } .wp-menu > li:nth-child(3):hover > a { color:#00E5FF; text-shadow:0 0 15px #00E5FF; } .wp-menu > li:nth-child(4):hover > a { color:#C084FC; text-shadow:0 0 15px #C084FC; } /* DROPDOWN */ .wp-dropdown { display:none; position:absolute; top:45px; left:50%; transform:translateX(-50%); min-width:230px; background:rgba(10,10,14,.95); border:1px solid rgba(255,255,255,.15); border-radius:14px; padding:10px 0; box-shadow: 0 0 30px rgba(0,0,0,.8); backdrop-filter:blur(20px); } .wp-menu li:hover .wp-dropdown { display:block; } .wp-dropdown a { display:block; padding:12px 20px; color:rgba(255,255,255,.55); text-decoration:none; font-size:18px; text-transform:uppercase; } .wp-dropdown a:hover { color:white; background:rgba(255,255,255,.08); } /* ICONS */ .wp-actions { display:flex; gap:15px; } .wp-actions a { color:rgba(255,255,255,.6); text-decoration:none; font-size:18px; text-transform:uppercase; transition:.25s; } .wp-actions a:hover { color:#00E5FF; text-shadow:0 0 20px #00E5FF; } /* MOBILE */ @media(max-width:1000px){ .wp-search { display:none; } .wp-menu { display:none; } .wp-header-inner { padding:0 20px; } } </style> <header id="wp-header"> <div class="wp-header-inner"> <a class="wp-logo" href="/"> <img src="assets/images/logo.png" alt="WPGlassCo"> </a> <div class="wp-search"> <input type="search" placeholder="Search WPGlassCo..."> </div> <ul class="wp-menu"> <li> <a href="https://wedplace.github.io/WPGlassCo/shop.html">Shop</a> <div class="wp-dropdown"> <a href="/concentrate.html">Concentrate Pieces</a> <a href="/flower.html">Flower Pieces</a> <a href="/erig.html">E-Rig Pieces</a> <a href="/merch.html">Merch</a> <a href="/fullsets.html">Curations</a> <a href="/requests.html">Request Form</a> </div> </li> <li> <a href="/wholesale.html">Wholesale</a> <div class="wp-dropdown"> <a href="/wsinformation.html">Information</a> <a href="wsapply.html">Application</a> <a href="/wsbundles.hrtml">Catalog</a> </div> </li> <li> <a href="eled.html">Elevate & Educate</a> <div class="wp-dropdown"> <a href="/conclass.html">Concentrates</a> <a href="/hrclass.html">Harm Reduction</a> <a href="/glassclass.html">Glass & Smokeware</a> <a href="/homies.html">Sources We Trust</a> </div> </li> <li> <a href="aboutus.html">About Us</a> <div class="wp-dropdown"> <a href="/whatswp.html">Learn More</a> <a href="/faq.html">FAQ</a> <a href="/policies.html">Policies</a> <a href="/reviews.html">Reviews</a> </div> </li> </ul> <div class="wp-actions"> <a href="wishlist.html">♡</a> <a href="cart.html">🛒</a> <a href="account.html">◯</a> </div> <button class="wp-mobile-toggle"> ☰ </button> </div></header>
+ 
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+.wpg-wrap{font-family:'Montserrat',sans-serif;color:#f0f0f0;padding:2.5rem 1.25rem 3rem;background:#080808;}
+.wpg-page-header{max-width:900px;margin:0 auto 3rem;position:relative;}
+.wpg-drop-label{font-size:0.6rem;font-weight:800;letter-spacing:0.4em;text-transform:uppercase;color:#b038fa;text-shadow:0 0 12px rgba(176,56,250,0.6);margin-bottom:0.5rem;}
+.wpg-page-title{font-size:clamp(2.2rem,6vw,3.5rem);font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-0.01em;line-height:0.95;background:linear-gradient(100deg,#fff 0%,#08E2A5 40%,#b038fa 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(8,226,165,0.2));}
+.wpg-page-sub{font-size:0.7rem;font-weight:500;color:#444;letter-spacing:0.15em;text-transform:uppercase;margin-top:0.9rem;}
+.wpg-header-line{height:1px;background:linear-gradient(90deg,#08E2A5,#b038fa,transparent);margin-top:1.5rem;max-width:900px;margin-left:auto;margin-right:auto;}
+.wpg-sets{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:1.5rem;}
+.wpg-set{display:grid;grid-template-columns:1fr 1fr;border-radius:12px;overflow:hidden;position:relative;background:#0c0c0c;transition:transform 0.3s,box-shadow 0.3s;min-height:320px;}
+.wpg-set:hover{transform:translateY(-4px);box-shadow:0 0 0 1px rgba(8,226,165,0.3),0 0 40px rgba(8,226,165,0.12),0 0 80px rgba(176,56,250,0.08);}
+.wpg-set-letter{position:absolute;top:-0.15em;right:-0.05em;font-size:clamp(8rem,18vw,14rem);font-weight:900;font-style:italic;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(8,226,165,0.07);pointer-events:none;z-index:0;user-select:none;letter-spacing:-0.05em;}
+.wpg-set-img{position:relative;overflow:hidden;}
+.wpg-set-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;filter:brightness(0.88);}
+.wpg-set:hover .wpg-set-img img{transform:scale(1.06);filter:brightness(1);}
+.wpg-set-img-overlay{position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,#0c0c0c 100%);z-index:1;}
+.wpg-drop-badge{position:absolute;bottom:1rem;left:1rem;z-index:2;background:rgba(8,8,8,0.7);backdrop-filter:blur(8px);border:1px solid rgba(8,226,165,0.3);border-radius:3px;padding:0.3rem 0.75rem;font-size:0.55rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:#08E2A5;text-shadow:0 0 8px rgba(8,226,165,0.5);}
+.wpg-sold-overlay{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;background:rgba(8,8,8,0.68);backdrop-filter:blur(2px);}
+.wpg-sold-badge{font-size:0.95rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#fff;padding:0.45rem 1.4rem;border:1.5px solid rgba(255,184,230,0.6);background:linear-gradient(135deg,rgba(240,2,236,0.45),rgba(176,56,250,0.35));box-shadow:0 0 20px rgba(240,2,236,0.4);}
+.wpg-set-content{padding:1.75rem 1.5rem 1.75rem 1.25rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:1;}
+.wpg-set-top{display:flex;flex-direction:column;gap:0.6rem;}
+.wpg-set-name{font-size:1.3rem;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:0.02em;color:#fff;line-height:1.05;}
+.wpg-set-id{font-size:0.62rem;font-weight:500;font-style:italic;letter-spacing:0.08em;color:#666;margin-top:0.2rem;}
+.wpg-set-tagline{font-size:0.65rem;font-weight:500;color:#555;letter-spacing:0.08em;font-style:normal;margin-top:0.1rem;}
+.wpg-includes-wrap{margin-top:0.5rem;}
+.wpg-includes-label{font-size:0.52rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#333;margin-bottom:0.5rem;}
+.wpg-includes{list-style:none;display:flex;flex-direction:column;gap:0.35rem;}
+.wpg-includes li{font-size:0.68rem;font-weight:500;color:#777;padding-left:1rem;position:relative;line-height:1.3;}
+.wpg-includes li::before{content:'—';position:absolute;left:0;color:#08E2A5;font-size:0.55rem;opacity:0.6;}
+.wpg-set-bottom{display:flex;flex-direction:column;gap:0.75rem;}
+.wpg-price-row{display:flex;align-items:baseline;gap:0.5rem;}
+.wpg-price{font-size:1.6rem;font-weight:900;color:#08E2A5;text-shadow:0 0 14px rgba(8,226,165,0.5),0 0 40px rgba(8,226,165,0.15);line-height:1;}
+.wpg-price-note{font-size:0.55rem;font-weight:600;color:#333;letter-spacing:0.1em;text-transform:uppercase;}
+.wpg-price-sold{font-size:1.6rem;font-weight:900;color:#333;line-height:1;}
+.wpg-btn-row{display:flex;gap:0.5rem;}
+.wpg-offer{flex:1;padding:0.55rem 0.4rem;background:transparent;border:1px solid #b038fa;color:#cf75ff;font-family:'Montserrat',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:5px;transition:all 0.2s;text-align:center;box-shadow:0 0 8px rgba(176,56,250,0.12);line-height:1.3;}
+.wpg-offer:hover{background:linear-gradient(135deg,rgba(176,56,250,0.25),rgba(207,117,255,0.15));color:#fff;box-shadow:0 0 18px rgba(176,56,250,0.45);border-color:#cf75ff;}
+.wpg-offer.wpg-disabled{border-color:#1e1e1e;color:#2a2a2a;cursor:not-allowed;box-shadow:none;pointer-events:none;}
+.wpg-pp{flex:1;display:flex;}
+.wpg-pp-btn{width:100%;padding:0.55rem 0.25rem;background:linear-gradient(135deg,#003087,#009cde);color:#fff;font-family:'Montserrat',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border-radius:5px;text-align:center;cursor:pointer;border:none;box-shadow:0 0 10px rgba(0,156,222,0.2);transition:box-shadow 0.2s;line-height:1.3;}
+.wpg-pp-btn:hover{box-shadow:0 0 22px rgba(0,156,222,0.5);}
+.wpg-pp-btn[disabled]{opacity:0.15;cursor:not-allowed;box-shadow:none;}
+@media(max-width:600px){.wpg-set{grid-template-columns:1fr;min-height:auto;}.wpg-set-img{aspect-ratio:16/9;}.wpg-set-img-overlay{background:linear-gradient(180deg,transparent 60%,#0c0c0c 100%);}.wpg-set-letter{font-size:8rem;}}
+.wpg-section-divider{max-width:900px;margin:2rem auto 1.5rem;display:flex;align-items:center;gap:1rem;}
+.wpg-section-divider span{font-size:0.55rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#2a2a2a;white-space:nowrap;}
+.wpg-section-divider::before,.wpg-section-divider::after{content:'';flex:1;height:1px;background:#1a1a1a;}
+.wpg-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(8px);}
+.wpg-modal-bg.wpg-open{display:flex;}
+.wpg-modal{background:linear-gradient(150deg,#0e0e0e 0%,#131a17 100%);border:1px solid #08E2A5;border-radius:12px;padding:2rem 1.75rem 1.75rem;width:92%;max-width:400px;position:relative;box-shadow:0 0 0 1px rgba(8,226,165,0.15),0 0 40px rgba(8,226,165,0.2),0 0 80px rgba(176,56,250,0.08),0 30px 60px rgba(0,0,0,0.6);animation:wpgIn 0.2s ease;}
+@keyframes wpgIn{from{opacity:0;transform:translateY(12px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+.wpg-modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:#444;font-size:1rem;cursor:pointer;transition:color 0.15s;}
+.wpg-modal-close:hover{color:#ccc;}
+.wpg-modal-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#08E2A5;text-shadow:0 0 10px rgba(8,226,165,0.45);margin-bottom:0.3rem;}
+.wpg-modal-pname{font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#eee;margin-bottom:1.5rem;line-height:1.25;}
+.wpg-modal label{display:block;font-size:0.58rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#555;margin-bottom:0.35rem;}
+.wpg-modal input{width:100%;background:#0a0a0a;border:1px solid #1e1e1e;border-radius:5px;color:#eee;font-family:'Montserrat',sans-serif;font-size:0.85rem;padding:0.65rem 0.85rem;margin-bottom:1rem;outline:none;transition:border-color 0.2s,box-shadow 0.2s;}
+.wpg-modal input:focus{border-color:#08E2A5;box-shadow:0 0 12px rgba(8,226,165,0.18);}
+.wpg-modal input::placeholder{color:#2a2a2a;}
+.wpg-modal-submit{width:100%;padding:0.72rem;background:linear-gradient(135deg,#08E2A5 0%,#b038fa 100%);border:none;border-radius:5px;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:box-shadow 0.2s,opacity 0.15s;box-shadow:0 0 20px rgba(8,226,165,0.2),0 0 20px rgba(176,56,250,0.15);margin-top:0.25rem;}
+.wpg-modal-submit:hover{box-shadow:0 0 30px rgba(8,226,165,0.38),0 0 30px rgba(176,56,250,0.3);opacity:0.92;}
+.wpg-modal-note{font-size:0.56rem;color:#383838;text-align:center;margin-top:0.9rem;}
+</style>
+
+<div class="wpg-modal-bg" id="wpgModalB">
+  <div class="wpg-modal">
+    <button class="wpg-modal-close" onclick="wpgCloseB()">✕</button>
+    <div class="wpg-modal-eyebrow">WPGlassCo</div>
+    <div class="wpg-modal-pname" id="wpgPnameB"></div>
+    <label>Phone or Email</label>
+    <input type="text" id="wpgContactB" placeholder="you@email.com or 210-555-0000">
+    <label>Your Offer</label>
+    <input type="text" id="wpgOfferB" placeholder="$ amount">
+    <button class="wpg-modal-submit" onclick="wpgSubmitB()">Send Offer →</button>
+    <div class="wpg-modal-note">We'll get back to you within 24hrs.</div>
+  </div>
+</div>
+
+<div class="wpg-wrap">
+  <div class="wpg-page-header">
+    <div class="wpg-drop-label">&#9632; Curated by WPGlassCo</div>
+    <div class="wpg-page-title">Banger<br>Setups</div>
+    <div class="wpg-page-sub">Hand-assembled. Built to rip. Priced to move.</div>
+  </div>
+  <div class="wpg-header-line"></div>
+
+  <div class="wpg-sets" style="margin-top:2rem;">
+
+    <!-- WPC-G1 The Great Attractor -->
+    <div class="wpg-set">
+      <div class="wpg-set-letter">GA</div>
+      <div class="wpg-set-img">
+        <img src="https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/0620ed61-4631-4586-b688-43fffab8199f/E7361843-5A2A-4EC4-853B-C1B56EE36BCE.PNG?content-type=image%2Fpng" alt="The Great Attractor">
+        <div class="wpg-set-img-overlay"></div>
+        <div class="wpg-drop-badge">WPC-G1</div>
+      </div>
+      <div class="wpg-set-content">
+        <div class="wpg-set-top">
+          <div>
+            <div class="wpg-set-name">"The Great Attractor"</div>
+            <div class="wpg-set-id">Terporium Set</div>
+          </div>
+          <div class="wpg-includes-wrap">
+            <div class="wpg-includes-label">What's Included</div>
+            <ul class="wpg-includes">
+              <li>Tower</li>
+              <li>Lucid CFL w/Opal Cap</li>
+              <li>Surface Enhanced Pillar</li>
+            </ul>
+          </div>
+        </div>
+        <div class="wpg-set-bottom">
+          <div class="wpg-price-row">
+            <div class="wpg-price">$45</div>
+            <div class="wpg-price-note">Curated Bundle</div>
+          </div>
+          <div class="wpg-btn-row">
+            <button class="wpg-offer" onclick="wpgOpenB('The Great Attractor')">Make an Offer</button>
+            <div class="wpg-pp"><div><style>.pp-ELCDDAK3RQVJN{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style><form action="https://www.paypal.com/ncp/payment/ELCDDAK3RQVJN" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;"><input class="pp-ELCDDAK3RQVJN" type="submit" value="Buy Now"/><img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards"/><section style="font-size:0.75rem;">Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section></form></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WPC-M2 The Mandala Effect — SOLD -->
+    <div class="wpg-set">
+      <div class="wpg-set-letter">ME</div>
+      <div class="wpg-set-img">
+        <img src="https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/59624946-2196-4d16-a59c-c126746ac712/7A860711-E327-4BAB-A5A2-49B6D4B4F218.PNG?content-type=image%2Fpng" alt="The Mandala Effect">
+        <div class="wpg-set-img-overlay"></div>
+        <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold</div></div>
+        <div class="wpg-drop-badge">WPC-M2</div>
+      </div>
+      <div class="wpg-set-content">
+        <div class="wpg-set-top">
+          <div>
+            <div class="wpg-set-name">"The Mandala Effect"</div>
+            <div class="wpg-set-id">Terporium Set</div>
+            <div class="wpg-set-tagline">Flawless function. Delicate detail.</div>
+          </div>
+          <div class="wpg-includes-wrap">
+            <div class="wpg-includes-label">What Was Included</div>
+            <ul class="wpg-includes">
+              <li>Terp Taster</li>
+              <li>Rainbow Swirl Cap with Opal</li>
+              <li>Steve H. Mandala Pearl</li>
+            </ul>
+          </div>
+        </div>
+        <div class="wpg-set-bottom">
+          <div class="wpg-price-row">
+            <div class="wpg-price">$75</div>
+            <div class="wpg-price-note">Sold</div>
+          </div>
+          <div class="wpg-btn-row">
+            <button class="wpg-offer wpg-disabled">Make an Offer</button>
+            <div class="wpg-pp"><button class="wpg-pp-btn" disabled>Buy Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WPC-S3 The Spectrum — SOLD -->
+    <div class="wpg-set">
+      <div class="wpg-set-letter">SP</div>
+      <div class="wpg-set-img">
+        <img src="https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/d6b06b75-d12c-4b4f-a668-de9f8d842113/F3044661-9823-4D14-AC69-1C19B88FCEF6.PNG?content-type=image%2Fpng" alt="The Spectrum">
+        <div class="wpg-set-img-overlay"></div>
+        <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold</div></div>
+        <div class="wpg-drop-badge">WPC-S3</div>
+      </div>
+      <div class="wpg-set-content">
+        <div class="wpg-set-top">
+          <div>
+            <div class="wpg-set-name">"The Spectrum"</div>
+            <div class="wpg-set-id">Terporium Set</div>
+            <div class="wpg-set-tagline">Full spectrum. Full function.</div>
+          </div>
+          <div class="wpg-includes-wrap">
+            <div class="wpg-includes-label">What Was Included</div>
+            <ul class="wpg-includes">
+              <li>Tower</li>
+              <li>Rainbow Dichro Set</li>
+            </ul>
+          </div>
+        </div>
+        <div class="wpg-set-bottom">
+          <div class="wpg-price-row">
+            <div class="wpg-price">$50</div>
+            <div class="wpg-price-note">Sold</div>
+          </div>
+          <div class="wpg-btn-row">
+            <button class="wpg-offer wpg-disabled">Make an Offer</button>
+            <div class="wpg-pp"><button class="wpg-pp-btn" disabled>Buy Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WPC-F1 The Fallout — SOLD -->
+    <div class="wpg-set">
+      <div class="wpg-set-letter">F</div>
+      <div class="wpg-set-img">
+        <img src="https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/9101df30-d36a-464f-9e22-b8d00c0c269b/542E8A2D-8BE5-4FAA-9D25-E959560241F6.png?content-type=image%2Fpng" alt="The Fallout">
+        <div class="wpg-set-img-overlay"></div>
+        <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold</div></div>
+        <div class="wpg-drop-badge">WPC-F1</div>
+      </div>
+      <div class="wpg-set-content">
+        <div class="wpg-set-top">
+          <div>
+            <div class="wpg-set-name">"The Fallout"</div>
+            <div class="wpg-set-id">Terporium Set</div>
+            <div class="wpg-set-tagline">Premium glass. Dichro flair. No compromises.</div>
+          </div>
+          <div class="wpg-includes-wrap">
+            <div class="wpg-includes-label">What Was Included</div>
+            <ul class="wpg-includes">
+              <li>Fully Faceted Tower</li>
+              <li>Green Dichro Slurper Set</li>
+            </ul>
+          </div>
+        </div>
+        <div class="wpg-set-bottom">
+          <div class="wpg-price-row">
+            <div class="wpg-price">$72</div>
+            <div class="wpg-price-note">Sold</div>
+          </div>
+          <div class="wpg-btn-row">
+            <button class="wpg-offer wpg-disabled">Make an Offer</button>
+            <div class="wpg-pp"><button class="wpg-pp-btn" disabled>Buy Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WPC-D1 The Dreamwalker — SOLD -->
+    <div class="wpg-set">
+      <div class="wpg-set-letter">D</div>
+      <div class="wpg-set-img">
+        <img src="https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/b8fa5369-3e8a-4468-8fb8-918d60be7f08/1557DC17-7648-4B29-B86C-E1D0CDEB1C43.png?content-type=image%2Fpng" alt="The Dreamwalker">
+        <div class="wpg-set-img-overlay"></div>
+        <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold</div></div>
+        <div class="wpg-drop-badge">WPC-D1</div>
+      </div>
+      <div class="wpg-set-content">
+        <div class="wpg-set-top">
+          <div>
+            <div class="wpg-set-name">"The Dreamwalker"</div>
+            <div class="wpg-set-id">Terporium Set</div>
+            <div class="wpg-set-tagline">Smooth pull. Clean hits. Built for the session.</div>
+          </div>
+          <div class="wpg-includes-wrap">
+            <div class="wpg-includes-label">What Was Included</div>
+            <ul class="wpg-includes">
+              <li>Lucid Bubble Cap</li>
+              <li>V3 Slurper</li>
+              <li>Zebra Pillar</li>
+            </ul>
+          </div>
+        </div>
+        <div class="wpg-set-bottom">
+          <div class="wpg-price-row">
+            <div class="wpg-price">$52</div>
+            <div class="wpg-price-note">Sold</div>
+          </div>
+          <div class="wpg-btn-row">
+            <button class="wpg-offer wpg-disabled">Make an Offer</button>
+            <div class="wpg-pp"><button class="wpg-pp-btn" disabled>Buy Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WPC-U1 The Undertow — SOLD -->
+    <div class="wpg-set">
+      <div class="wpg-set-letter">U</div>
+      <div class="wpg-set-img">
+        <img src="https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/16eaf5d7-32fe-4b17-a589-41b0566aa6cf/0BF18551-BD8A-470B-B08E-2DDAD1886BA9.png?content-type=image%2Fpng" alt="The Undertow">
+        <div class="wpg-set-img-overlay"></div>
+        <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold</div></div>
+        <div class="wpg-drop-badge">WPC-U1</div>
+      </div>
+      <div class="wpg-set-content">
+        <div class="wpg-set-top">
+          <div>
+            <div class="wpg-set-name">"The Undertow"</div>
+            <div class="wpg-set-id">Terporium Set</div>
+            <div class="wpg-set-tagline">Pull it deep. Let it carry you.</div>
+          </div>
+          <div class="wpg-includes-wrap">
+            <div class="wpg-includes-label">What Was Included</div>
+            <ul class="wpg-includes">
+              <li>Blue Swirl Valve Shroom Set</li>
+              <li>Seamless Slurper</li>
+            </ul>
+          </div>
+        </div>
+        <div class="wpg-set-bottom">
+          <div class="wpg-price-row">
+            <div class="wpg-price">$42</div>
+            <div class="wpg-price-note">Sold</div>
+          </div>
+          <div class="wpg-btn-row">
+            <button class="wpg-offer wpg-disabled">Make an Offer</button>
+            <div class="wpg-pp"><button class="wpg-pp-btn" disabled>Buy Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="wpg-section-divider" style="margin-top:3rem;"><span>Previously Dropped</span></div>
+
+  <div class="wpg-sets">
+
+    <!-- WPC-A1 The Anomaly — SOLD -->
+    <div class="wpg-set">
+      <div class="wpg-set-letter">A</div>
+      <div class="wpg-set-img">
+        <img src="https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/527bef5f-b7d6-4b45-b1b8-d1cc99c28627/B495DFF7-50C5-4E85-BE66-0752DE44D71C.png?content-type=image%2Fpng" alt="The Anomaly">
+        <div class="wpg-set-img-overlay"></div>
+        <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold</div></div>
+      </div>
+      <div class="wpg-set-content">
+        <div class="wpg-set-top">
+          <div>
+            <div class="wpg-set-name">"The Anomaly"</div>
+            <div class="wpg-set-id">Terporium Set — WPC-A1</div>
+          </div>
+          <div class="wpg-includes-wrap">
+            <div class="wpg-includes-label">What Was Included</div>
+            <ul class="wpg-includes">
+              <li>Neo Bubble Cap</li>
+              <li>Hollow Vortex Pillar</li>
+              <li>Seamless Slurper</li>
+            </ul>
+          </div>
+        </div>
+        <div class="wpg-set-bottom">
+          <div class="wpg-price-row">
+            <div class="wpg-price-sold">$50</div>
+            <div class="wpg-price-note">Sold</div>
+          </div>
+          <div class="wpg-btn-row">
+            <button class="wpg-offer wpg-disabled">Make an Offer</button>
+            <div class="wpg-pp"><button class="wpg-pp-btn" disabled>Buy Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WPC-W1 The Watcher — SOLD -->
+    <div class="wpg-set">
+      <div class="wpg-set-letter">W</div>
+      <div class="wpg-set-img">
+        <img src="https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/4db7d4ff-683e-4e6b-b3c5-118012392f34/4120670C-E1EE-4D3C-9D4E-E5F7EE27951F.png?content-type=image%2Fpng" alt="The Watcher">
+        <div class="wpg-set-img-overlay"></div>
+        <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold</div></div>
+      </div>
+      <div class="wpg-set-content">
+        <div class="wpg-set-top">
+          <div>
+            <div class="wpg-set-name">The Watcher</div>
+            <div class="wpg-set-id">WPC-W1</div>
+          </div>
+          <div class="wpg-includes-wrap">
+            <div class="wpg-includes-label">What Was Included</div>
+            <ul class="wpg-includes">
+              <li>Eyeball Marble</li>
+              <li>Quartz Charmer</li>
+              <li>Ruby Pearls</li>
+            </ul>
+          </div>
+        </div>
+        <div class="wpg-set-bottom">
+          <div class="wpg-price-row">
+            <div class="wpg-price-sold">$44</div>
+            <div class="wpg-price-note">Sold</div>
+          </div>
+          <div class="wpg-btn-row">
+            <button class="wpg-offer wpg-disabled">Make an Offer</button>
+            <div class="wpg-pp"><button class="wpg-pp-btn" disabled>Buy Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WPC-S1 The Skyscraper — SOLD -->
+    <div class="wpg-set">
+      <div class="wpg-set-letter">S</div>
+      <div class="wpg-set-img">
+        <img src="https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/fdccb955-df7d-4549-8099-febba60ce949/skyscraper.png?content-type=image%2Fpng" alt="The Skyscraper">
+        <div class="wpg-set-img-overlay"></div>
+        <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold</div></div>
+      </div>
+      <div class="wpg-set-content">
+        <div class="wpg-set-top">
+          <div>
+            <div class="wpg-set-name">The Skyscraper</div>
+            <div class="wpg-set-id">WPC-S1</div>
+          </div>
+          <div class="wpg-includes-wrap">
+            <div class="wpg-includes-label">What Was Included</div>
+            <ul class="wpg-includes">
+              <li>XXXL Terp Slurper</li>
+              <li>Clear Marble</li>
+            </ul>
+          </div>
+        </div>
+        <div class="wpg-set-bottom">
+          <div class="wpg-price-row">
+            <div class="wpg-price-sold">$50</div>
+            <div class="wpg-price-note">Sold</div>
+          </div>
+          <div class="wpg-btn-row">
+            <button class="wpg-offer wpg-disabled">Make an Offer</button>
+            <div class="wpg-pp"><button class="wpg-pp-btn" disabled>Buy Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WPC-M1 The Mirage — SOLD OUT -->
+    <div class="wpg-set">
+      <div class="wpg-set-letter">M</div>
+      <div class="wpg-set-img">
+        <img src="https://images.squarespace-cdn.com/content/68f488a504c32251ed513a96/4f583cc8-1d9c-457a-9f8f-33d64ec9d40f/CACB5C5A-A1FA-4D26-BE05-DAB227E160F9.png?content-type=image%2Fpng" alt="The Mirage">
+        <div class="wpg-set-img-overlay"></div>
+        <div class="wpg-sold-overlay"><div class="wpg-sold-badge">Sold Out</div></div>
+      </div>
+      <div class="wpg-set-content">
+        <div class="wpg-set-top">
+          <div>
+            <div class="wpg-set-name">"The Mirage"</div>
+            <div class="wpg-set-id">Terporium Set — WPC-M1</div>
+          </div>
+          <div class="wpg-includes-wrap">
+            <div class="wpg-includes-label">What Was Included</div>
+            <ul class="wpg-includes">
+              <li>Opal CFL Cap</li>
+              <li>Slide Banger</li>
+              <li>Surface Enhanced Pillar</li>
+            </ul>
+          </div>
+        </div>
+        <div class="wpg-set-bottom">
+          <div class="wpg-price-row">
+            <div class="wpg-price-sold">—</div>
+          </div>
+          <div class="wpg-btn-row">
+            <button class="wpg-offer wpg-disabled">Make an Offer</button>
+            <div class="wpg-pp"><button class="wpg-pp-btn" disabled>Buy Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const WPG_EMAIL='elevate@wpglassco.com';
+function wpgOpenB(name){
+  document.getElementById('wpgPnameB').textContent=name;
+  document.getElementById('wpgContactB').value='';
+  document.getElementById('wpgOfferB').value='';
+  document.getElementById('wpgModalB').classList.add('wpg-open');
+  document.body.style.overflow='hidden';
+}
+function wpgCloseB(){
+  document.getElementById('wpgModalB').classList.remove('wpg-open');
+  document.body.style.overflow='';
+}
+function wpgSubmitB(){
+  var product=document.getElementById('wpgPnameB').textContent;
+  var contact=document.getElementById('wpgContactB').value.trim();
+  var offer=document.getElementById('wpgOfferB').value.trim();
+  if(!contact||!offer){alert('Please fill out both fields.');return;}
+  var subject=encodeURIComponent('Offer on: '+product);
+  var body=encodeURIComponent('Product: '+product+'\nOffer: $'+offer+'\nContact: '+contact);
+  window.location.href='mailto:'+WPG_EMAIL+'?subject='+subject+'&body='+body;
+  wpgCloseB();
+}
+document.getElementById('wpgModalB').addEventListener('click',function(e){if(e.target===this)wpgCloseB();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')wpgCloseB();});
+</script>
+
+ <!-- ==================== WPGLASSCO FOOTER ==================== --> 
+<footer class="wp-footer"> <div class="wp-footer-inner"> <div class="wp-footer-brand"> <img src="assets/images/logo.png" alt="WPGlassCo"> <p> Premium handcrafted glass, functional art, and a community built around the craft. </p> <div class="wp-footer-socials"> <a href="#">Instagram</a> <a href="#">X</a> <a href="#">Facebook</a> </div> </div> <div class="wp-footer-links"> <h3> Shop </h3> <a href="shop.html"> Collections </a> <a href="/requests.html"> Custom Requests </a> <a href="/merch.html"> Merch </a> </div> <div class="wp-footer-links"> <h3> Learn </h3> <a href="/eled.html"> Educate & Elevate </a> <a href="/faq.html"> FAQ </a> <a href="/policies.html"> Policies </a> </div> <div class="wp-footer-links"> <h3> Community </h3> <a href="/wpglassclub.html"> WP Glass Club </a> <a href="/wholesale.html"> Wholesale </a> <a href="contactwp.html"> Contact </a> </div> </div> <div class="wp-footer-bottom"> <span> © 2026 WPGlassCo. All Rights Reserved. </span> <span> Crafted For The Culture. </span> </div> </footer> </body> </html>
 
