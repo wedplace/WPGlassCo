@@ -5,78 +5,365 @@
 
  
 
-<!--===PAGE BODY====>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | WP Glass Co</title>
+
+<link rel="stylesheet" href="assets/css/global.css">
+
 <style>
-/* WP Glass Co - Coming Soon */
 
-.coming-soon {
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px;
-    max-width: 700px;
-    margin: 0 auto;
-    color: #f5f5f5;
+:root{
+    --bg:#0b0b0b;
+    --card:#141414;
+    --text:#f5f5f5;
+    --muted:#9b9b9b;
+    --accent:#9CFF4F;
+    --border:rgba(255,255,255,.08);
 }
 
-.coming-soon .icon {
-    font-size: 3.5rem;
-    color: var(--wp-teal, #00d4d8);
-    text-shadow: 0 0 20px rgba(0,212,216,.5);
-    margin-bottom: 20px;
-    animation: pulse 3s ease-in-out infinite;
+body{
+    background:var(--bg);
+    color:var(--text);
 }
 
-.coming-soon h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    margin: 0;
-    font-weight: 700;
-    letter-spacing: .05em;
-    text-transform: uppercase;
+.about-hero{
+    min-height:75vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 30px;
 }
 
-.coming-soon .tagline {
-    margin: 12px 0 24px;
-    color: var(--wp-orange, #ff8c42);
-    font-size: 1.15rem;
-    font-weight: 600;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+.about-hero h1{
+    font-size:clamp(3rem,8vw,6rem);
+    line-height:.95;
+    margin-bottom:20px;
 }
 
-.coming-soon .description {
-    max-width: 520px;
-    line-height: 1.8;
-    color: #b8b8b8;
-    font-size: 1rem;
+.about-hero p{
+    max-width:700px;
+    margin:auto;
+    color:var(--muted);
+    font-size:1.2rem;
+    line-height:1.8;
 }
 
-@keyframes pulse {
-    0%,100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.08);
-        opacity: .75;
-    }
+section{
+    width:min(1200px,92%);
+    margin:auto;
+    padding:100px 0;
 }
+
+.story-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.story-image{
+    background:#1a1a1a;
+    border:1px solid var(--border);
+    border-radius:20px;
+    aspect-ratio:4/5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#666;
+    font-size:.9rem;
+}
+
+.story-text h2{
+    font-size:2.8rem;
+    margin-bottom:25px;
+}
+
+.story-text p{
+    color:var(--muted);
+    line-height:1.9;
+    margin-bottom:22px;
+}
+
+.values{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+.value-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:35px;
+    transition:.3s;
+}
+
+.value-card:hover{
+    transform:translateY(-8px);
+    border-color:var(--accent);
+}
+
+.value-card h3{
+    margin-bottom:12px;
+    color:var(--accent);
+}
+
+.team{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:40px;
+}
+
+.member{
+    background:var(--card);
+    border-radius:24px;
+    overflow:hidden;
+    border:1px solid var(--border);
+}
+
+.member-image{
+    aspect-ratio:1;
+    background:#202020;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#666;
+}
+
+.member-content{
+    padding:35px;
+}
+
+.member-content h3{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.member-role{
+    color:var(--accent);
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.member-content p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.closing{
+    text-align:center;
+    max-width:800px;
+}
+
+.closing h2{
+    font-size:3rem;
+    margin-bottom:25px;
+}
+
+.closing p{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.button{
+    display:inline-block;
+    background:var(--accent);
+    color:#000;
+    padding:16px 34px;
+    border-radius:999px;
+    font-weight:700;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.button:hover{
+    transform:translateY(-4px);
+}
+
+@media(max-width:900px){
+
+.story-grid{
+grid-template-columns:1fr;
+}
+
+.about-hero{
+min-height:60vh;
+}
+
+}
+
 </style>
 
-<section class="coming-soon">
-    <div class="icon">✦</div>
+</head>
 
-    <h1>Coming Soon</h1>
+<body>
 
-    <p class="tagline">Quality takes time.</p>
+<!-- Include your existing header here -->
 
-    <p class="description">
-        This page is being crafted.
-    </p>
+<section class="about-hero">
+
+<div>
+
+<p style="color:var(--accent);letter-spacing:3px;">THE PEOPLE BEHIND WP GLASS CO</p>
+
+<h1>Built by Passion.<br>Driven by Purpose.</h1>
+
+<p>
+WP Glass Co began with two people who loved cannabis culture,
+spent weekends exploring smoke shops together,
+and believed the community deserved something more thoughtful.
+</p>
+
+</div>
+
 </section>
+
+<section class="story-grid">
+
+<div class="story-image">
+Add a photo of you & Sam here
+</div>
+
+<div class="story-text">
+
+<h2>Our Story</h2>
+
+<p>
+WP Glass Co started the same way many great ideas do—with conversations.
+As cannabis consumers in Texas, we spent years navigating an industry that's constantly changing. Every new law, every new product, every new shop meant another opportunity to learn.
+</p>
+
+<p>
+We loved visiting smoke shops together, but after a while we noticed a pattern. Too many shelves were filled with products that looked identical, and quality didn't always match the price.
+</p>
+
+<p>
+Instead of settling for "good enough," we started imagining what we'd build if we could do it ourselves.
+</p>
+
+<p>
+That idea eventually became WP Glass Co.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 style="text-align:center;font-size:3rem;margin-bottom:60px;">
+What We Believe
+</h2>
+
+<div class="values">
+
+<div class="value-card">
+<h3>Quality Over Quantity</h3>
+<p>Every product we offer is selected because we'd proudly use it ourselves.</p>
+</div>
+
+<div class="value-card">
+<h3>Education Matters</h3>
+<p>We believe informed customers make better decisions, which is why education is a core part of our brand.</p>
+</div>
+
+<div class="value-card">
+<h3>Built for Community</h3>
+<p>WP Glass Co exists because of the people who share our passion for cannabis culture.</p>
+</div>
+
+<div class="value-card">
+<h3>Always Growing</h3>
+<p>We're constantly learning, improving, and expanding what we offer.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 style="text-align:center;font-size:3rem;margin-bottom:60px;">
+Meet the Team
+</h2>
+
+<div class="team">
+
+<div class="member">
+
+<div class="member-image">
+Sam's Photo
+</div>
+
+<div class="member-content">
+
+<h3>Sam</h3>
+
+<p class="member-role">
+Industry Knowledge & Product Curation
+</p>
+
+<p>
+Sam brings years of experience within the cannabis industry and a deep understanding of what customers and retailers are actually looking for. His knowledge helps shape every collection, ensuring quality, function, and value remain at the heart of WP Glass Co.
+</p>
+
+</div>
+
+</div>
+
+<div class="member">
+
+<div class="member-image">
+Chelsey's Photo
+</div>
+
+<div class="member-content">
+
+<h3>Chelsey</h3>
+
+<p class="member-role">
+Creative Director
+</p>
+
+<p>
+Chelsey is the creative force behind WP Glass Co's identity. From website development and branding to photography, product presentation, and customer experience, she focuses on creating a brand that feels intentional, memorable, and authentic.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="closing">
+
+<h2>More Than a Store.</h2>
+
+<p>
+WP Glass Co is the result of two people combining their strengths to build something meaningful. Every product, every page, and every customer interaction reflects our commitment to quality, creativity, and the community that inspired it all.
+
+Thank you for being part of our journey.
+</p>
+
+<a href="shop.html" class="button">
+Explore the Collection
+</a>
+
+</section>
+
+<!-- Include your existing footer here -->
+
+</body>
+</html>
  <!-- ==================== WPGLASSCO FOOTER ==================== --> 
 <footer class="wp-footer"> <div class="wp-footer-inner"> <div class="wp-footer-brand"> <img src="assets/images/logo.png" alt="WPGlassCo"> <p> Premium handcrafted glass, functional art, and a community built around the craft. </p> <div class="wp-footer-socials"> <a href="#">Instagram</a> <a href="#">X</a> <a href="#">Facebook</a> </div> </div> <div class="wp-footer-links"> <h3> Shop </h3> <a href="shop.html"> Collections </a> <a href="/requests.html"> Custom Requests </a> <a href="/merch.html"> Merch </a> </div> <div class="wp-footer-links"> <h3> Learn </h3> <a href="/eled.html"> Educate & Elevate </a> <a href="/faq.html"> FAQ </a> <a href="/policies.html"> Policies </a> </div> <div class="wp-footer-links"> <h3> Community </h3> <a href="/wpglassclub.html"> WP Glass Club </a> <a href="/wholesale.html"> Wholesale </a> <a href="contactwp.html"> Contact </a> </div> </div> <div class="wp-footer-bottom"> <span> © 2026 WPGlassCo. All Rights Reserved. </span> <span> Crafted For The Culture. </span> </div> </footer> </body> </html>
 
