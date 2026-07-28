@@ -6,7 +6,283 @@
  
 
 <!--===PAGE BODY====>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>FAQ | WP Glass Co</title>
+    <meta name="description" content="Frequently asked questions about WP Glass Co handcrafted glass, care, shipping, wholesale, and education.">
+
+    <link rel="stylesheet" href="assets/css/global.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="logo">
+        <a href="index.html">WP Glass Co</a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Open menu">
+        ☰
+    </button>
+
+    <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="wholesale.html">Wholesale</a>
+        <a href="educate.html">Educate & Elevate</a>
+        <a href="about.html">About</a>
+    </nav>
+</header>
+
+
+<main class="faq-page">
+
+<section class="page-hero">
+    <p class="kicker">Need Answers?</p>
+    <h1>Frequently Asked Questions</h1>
+    <p>
+        Everything you need to know about WP Glass Co products,
+        handcrafted glass, care, shipping, and more.
+    </p>
+</section>
+
+
+<section class="faq-container">
+
+
+<div class="faq-category">
+<h2>General Questions</h2>
+
+
+<div class="faq-item">
+<button class="faq-question">
+What is WP Glass Co?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+WP Glass Co creates premium handcrafted glass pieces designed
+for enthusiasts who appreciate quality, function, and unique artistry.
+</p>
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+Are your pieces handmade?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+Yes. Our glass is handcrafted by skilled artists using
+high-quality borosilicate glass. Since each piece is handmade,
+minor variations may occur — making every piece unique.
+</p>
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+What makes borosilicate glass different?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+Borosilicate glass is known for durability, thermal resistance,
+and clarity. It is widely used for premium functional glass
+because it handles heat changes better than standard glass.
+</p>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="faq-category">
+
+<h2>Product Questions</h2>
+
+
+<div class="faq-item">
+<button class="faq-question">
+How do I choose the right piece?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+Every setup is different. Explore our collections or reach out
+to our team and we’ll help you find the piece that fits your style.
+</p>
+</div>
+</div>
+
+
+
+<div class="faq-item">
+<button class="faq-question">
+Are your products compatible with my setup?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+Compatibility varies by product. Check each product description
+for sizing and included accessories. If you are unsure, contact us
+before ordering.
+</p>
+</div>
+</div>
+
+
+</div>
+
+
+
+<div class="faq-category">
+
+<h2>Glass Care</h2>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+How do I clean my glass?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+Regular cleaning keeps your piece performing its best.
+Use proper glass cleaning products and follow care instructions.
+</p>
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+Can I put my glass in the dishwasher?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+No. Hand cleaning is recommended to prevent accidental damage.
+</p>
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="faq-category">
+
+<h2>Orders & Shipping</h2>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+How do I track my order?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+Tracking information will be provided once your order ships.
+</p>
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+What if my package arrives damaged?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+<p>
+Contact us immediately with photos of the product and packaging
+so we can help resolve the issue.
+</p>
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<section class="faq-cta">
+
+<h2>Still Have Questions?</h2>
+
+<p>
+Our team is here to help you find the right piece,
+understand your setup, and elevate your experience.
+</p>
+
+<a href="contact.html" class="btn">
+Contact WP Glass Co
+</a>
+
+</section>
+
+
+</section>
+
+</main>
+
+
+
+<footer>
+<p>© WP Glass Co. All Rights Reserved.</p>
+</footer>
+
+
+
+<script>
+
+const questions = document.querySelectorAll(".faq-question");
+
+questions.forEach(question => {
+
+question.addEventListener("click", () => {
+
+const item = question.parentElement;
+
+item.classList.toggle("active");
+
+});
+
+});
+
+</script>
+
+
+</body>
+</html>
  <!-- ==================== WPGLASSCO FOOTER ==================== --> 
 <footer class="wp-footer"> <div class="wp-footer-inner"> <div class="wp-footer-brand"> <img src="assets/images/logo.png" alt="WPGlassCo"> <p> Premium handcrafted glass, functional art, and a community built around the craft. </p> <div class="wp-footer-socials"> <a href="#">Instagram</a> <a href="#">X</a> <a href="#">Facebook</a> </div> </div> <div class="wp-footer-links"> <h3> Shop </h3> <a href="shop.html"> Collections </a> <a href="/requests.html"> Custom Requests </a> <a href="/merch.html"> Merch </a> </div> <div class="wp-footer-links"> <h3> Learn </h3> <a href="/eled.html"> Educate & Elevate </a> <a href="/faq.html"> FAQ </a> <a href="/policies.html"> Policies </a> </div> <div class="wp-footer-links"> <h3> Community </h3> <a href="/wpglassclub.html"> WP Glass Club </a> <a href="/wholesale.html"> Wholesale </a> <a href="contactwp.html"> Contact </a> </div> </div> <div class="wp-footer-bottom"> <span> © 2026 WPGlassCo. All Rights Reserved. </span> <span> Crafted For The Culture. </span> </div> </footer> </body> </html>
 
