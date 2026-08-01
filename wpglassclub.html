@@ -5,7 +5,729 @@
  
 
 <!--===PAGE BODY====>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WP Glass Club | WP Glass Co</title>
+
+<meta name="description" content="Join WP Glass Club for exclusive events, member benefits, early access, and community updates from WP Glass Co.">
+
+<link rel="stylesheet" href="assets/css/global.css">
+
+
+<style>
+
+:root{
+    --bg:#080808;
+    --card:#111111;
+    --text:#f5f5f5;
+    --muted:#999;
+    --accent:#9CFF4F;
+    --border:rgba(255,255,255,.1);
+}
+
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+
+
+/* HERO */
+
+.club-hero{
+
+    min-height:85vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:140px 30px;
+
+}
+
+
+.club-hero .eyebrow{
+
+    color:var(--accent);
+    letter-spacing:5px;
+    font-size:.8rem;
+    margin-bottom:30px;
+
+}
+
+
+.club-hero h1{
+
+    font-size:clamp(3.5rem,9vw,7rem);
+    line-height:.9;
+    margin-bottom:30px;
+
+}
+
+
+.club-hero p{
+
+    max-width:750px;
+    margin:auto;
+    color:var(--muted);
+    font-size:1.25rem;
+    line-height:1.9;
+
+}
+
+
+
+
+/* BUTTON */
+
+.button{
+
+    display:inline-block;
+    margin-top:35px;
+    background:var(--accent);
+    color:#000;
+    padding:17px 40px;
+    border-radius:999px;
+    font-weight:700;
+    text-decoration:none;
+    transition:.3s;
+
+}
+
+
+.button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+
+
+/* SECTIONS */
+
+section{
+
+    width:min(1200px,92%);
+    margin:auto;
+    padding:100px 0;
+
+}
+
+
+.section-title{
+
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:60px;
+
+}
+
+
+
+
+/* BENEFITS */
+
+.benefits{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+
+}
+
+
+.benefit{
+
+    background:linear-gradient(
+        145deg,
+        #151515,
+        #0d0d0d
+    );
+
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:40px;
+    transition:.3s;
+
+}
+
+
+.benefit:hover{
+
+    transform:translateY(-8px);
+    border-color:var(--accent);
+
+}
+
+
+.benefit h3{
+
+    color:var(--accent);
+    margin-bottom:15px;
+
+}
+
+
+.benefit p{
+
+    color:var(--muted);
+    line-height:1.8;
+
+}
+
+
+
+/* EVENTS */
+
+.events{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+
+}
+
+
+
+.event{
+
+    background:#101010;
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:40px;
+
+}
+
+
+.event h3{
+
+    font-size:1.8rem;
+    margin-bottom:15px;
+
+}
+
+
+.event .date{
+
+    color:var(--accent);
+    letter-spacing:1px;
+    margin-bottom:20px;
+
+}
+
+
+.event p{
+
+    color:var(--muted);
+    line-height:1.8;
+
+}
+
+
+
+.event-button{
+
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 25px;
+    border:1px solid var(--accent);
+    border-radius:999px;
+    color:var(--accent);
+    text-decoration:none;
+
+}
+
+
+
+/* HOW IT WORKS */
+
+.steps{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+
+}
+
+
+
+.step{
+
+    text-align:center;
+
+}
+
+
+.step span{
+
+    display:block;
+    color:var(--accent);
+    font-size:3rem;
+    font-weight:800;
+    margin-bottom:20px;
+
+}
+
+
+.step h3{
+
+    font-size:1.5rem;
+
+}
+
+
+.step p{
+
+    color:var(--muted);
+    line-height:1.8;
+
+}
+
+
+
+/* SIGNUP */
+
+.club-signup{
+
+    text-align:center;
+    background:
+    linear-gradient(
+        145deg,
+        #151515,
+        #0c0c0c
+    );
+
+    border:1px solid var(--border);
+    border-radius:35px;
+    padding:80px 40px;
+
+}
+
+
+.club-signup h2{
+
+    font-size:3rem;
+
+}
+
+
+.club-signup p{
+
+    color:var(--muted);
+    max-width:650px;
+    margin:25px auto;
+    line-height:1.8;
+
+}
+
+
+.signup-form{
+
+    max-width:500px;
+    margin:40px auto 0;
+
+}
+
+
+.signup-form input{
+
+    width:100%;
+    padding:16px;
+    margin-bottom:15px;
+    background:#0b0b0b;
+    border:1px solid var(--border);
+    border-radius:12px;
+    color:white;
+
+}
+
+
+
+
+footer{
+
+    text-align:center;
+    padding:50px;
+    color:var(--muted);
+
+}
+
+
+
+@media(max-width:800px){
+
+.club-hero{
+
+    min-height:65vh;
+
+}
+
+
+.club-signup{
+
+    padding:50px 25px;
+
+}
+
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<header class="site-header">
+
+<div class="logo">
+
+<a href="index.html">
+WP Glass Co
+</a>
+
+</div>
+
+
+<nav class="nav-menu">
+
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="wholesale.html">Wholesale</a>
+<a href="educate.html">Educate & Elevate</a>
+<a href="about.html">About</a>
+
+</nav>
+
+</header>
+
+
+
+
+
+<section class="club-hero">
+
+<div>
+
+<p class="eyebrow">
+WP GLASS CLUB
+</p>
+
+
+<h1>
+Your Invitation<br>
+Into The WP Community.
+</h1>
+
+
+<p>
+A free community for collectors, customers, and supporters
+who appreciate craftsmanship, culture, and the experience
+behind every piece.
+</p>
+
+
+<a href="#join" class="button">
+Join WP Glass Club
+</a>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2 class="section-title">
+Club Benefits
+</h2>
+
+
+<div class="benefits">
+
+
+<div class="benefit">
+
+<h3>
+Free Membership
+</h3>
+
+<p>
+Join WP Glass Club at no cost and stay connected with
+everything happening at WPGlassCo.
+</p>
+
+</div>
+
+
+
+<div class="benefit">
+
+<h3>
+Exclusive Events
+</h3>
+
+<p>
+Receive access to community gatherings, showcases,
+and special WP experiences.
+</p>
+
+</div>
+
+
+
+<div class="benefit">
+
+<h3>
+Member Savings
+</h3>
+
+<p>
+Enjoy 10% off eligible purchases through the WPGlassCo
+website.
+</p>
+
+</div>
+
+
+
+<div class="benefit">
+
+<h3>
+First Access
+</h3>
+
+<p>
+Be the first to hear about drops, products, services,
+and upcoming events.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2 class="section-title">
+Upcoming Experiences
+</h2>
+
+
+<div class="events">
+
+
+<div class="event">
+
+<h3>
+WP Glass Club Launch
+</h3>
+
+<p class="date">
+COMING SOON
+</p>
+
+<p>
+Celebrate the beginning of the WP community with an
+exclusive gathering featuring products, education,
+and connection.
+</p>
+
+
+<a href="#" class="event-button">
+RSVP
+</a>
+
+</div>
+
+
+
+<div class="event">
+
+<h3>
+Future Event
+</h3>
+
+<p class="date">
+DATE TBD
+</p>
+
+<p>
+New WP Glass Club experiences will be announced here
+first.
+</p>
+
+
+<a href="#" class="event-button">
+Join Waitlist
+</a>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2 class="section-title">
+How It Works
+</h2>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<span>
+01
+</span>
+
+<h3>
+Join
+</h3>
+
+<p>
+Create your free WP Glass Club access.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<span>
+02
+</span>
+
+<h3>
+Discover
+</h3>
+
+<p>
+Receive early announcements, event notices,
+and exclusive updates.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<span>
+03
+</span>
+
+<h3>
+Experience
+</h3>
+
+<p>
+Connect with WPGlassCo and the community.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<section id="join">
+
+
+<div class="club-signup">
+
+
+<h2>
+Become Part Of What's Next.
+</h2>
+
+
+<p>
+Join WP Glass Club and stay connected with exclusive
+events, member benefits, and the future of WPGlassCo.
+</p>
+
+
+
+<form class="signup-form">
+
+
+<input type="text" placeholder="First Name">
+
+
+<input type="email" placeholder="Email Address">
+
+
+<button class="button" type="submit">
+Join The Club
+</button>
+
+
+</form>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<footer>
+
+<p>
+© WP Glass Co. All Rights Reserved.
+</p>
+
+</footer>
+
+
+
+</body>
+
+</html>
  <!-- ==================== WPGLASSCO FOOTER ==================== --> 
 <footer class="wp-footer"> <div class="wp-footer-inner"> <div class="wp-footer-brand"> <img src="assets/images/logo.png" alt="WPGlassCo"> <p> Premium handcrafted glass, functional art, and a community built around the craft. </p> <div class="wp-footer-socials"> <a href="#">Instagram</a> <a href="#">X</a> <a href="#">Facebook</a> </div> </div> <div class="wp-footer-links"> <h3> Shop </h3> <a href="shop.html"> Collections </a> <a href="/requests.html"> Custom Requests </a> <a href="/merch.html"> Merch </a> </div> <div class="wp-footer-links"> <h3> Learn </h3> <a href="/eled.html"> Educate & Elevate </a> <a href="/faq.html"> FAQ </a> <a href="/policies.html"> Policies </a> </div> <div class="wp-footer-links"> <h3> Community </h3> <a href="/wpglassclub.html"> WP Glass Club </a> <a href="/wholesale.html"> Wholesale </a> <a href="contactwp.html"> Contact </a> </div> </div> <div class="wp-footer-bottom"> <span> © 2026 WPGlassCo. All Rights Reserved. </span> <span> Crafted For The Culture. </span> </div> </footer> </body> </html>
 
