@@ -8,18 +8,348 @@
 <!-- ================= WHOLESALE INFORMATION BODY ================= -->
 
 
-<section class="about-hero">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wholesale Information | WP Glass Co</title>
+
+<meta name="description" content="Learn about WP Glass Co wholesale requirements, partner benefits, ordering, and support.">
+
+<link rel="stylesheet" href="assets/css/global.css">
+
+
+<style>
+
+:root{
+    --bg:#0b0b0b;
+    --card:#141414;
+    --text:#f5f5f5;
+    --muted:#9b9b9b;
+    --accent:#9CFF4F;
+    --border:rgba(255,255,255,.08);
+}
+
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+
+/* HEADER FALLBACK */
+
+.site-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 6%;
+}
+
+
+.site-header a{
+    color:var(--text);
+    text-decoration:none;
+}
+
+
+.nav-menu{
+    display:flex;
+    gap:25px;
+}
+
+
+/* HERO */
+
+.page-hero{
+
+    min-height:70vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 30px;
+
+}
+
+
+.eyebrow{
+
+    color:var(--accent);
+    letter-spacing:3px;
+    font-size:.85rem;
+
+}
+
+
+.page-hero h1{
+
+    font-size:clamp(3rem,8vw,5.5rem);
+    line-height:.95;
+    margin:20px 0;
+
+}
+
+
+.page-hero p{
+
+    max-width:750px;
+    margin:auto;
+    color:var(--muted);
+    line-height:1.8;
+    font-size:1.15rem;
+
+}
+
+
+
+/* SECTIONS */
+
+section{
+
+    width:min(1200px,92%);
+    margin:auto;
+    padding:90px 0;
+
+}
+
+
+
+/* BOX */
+
+.info-box{
+
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:60px;
+    text-align:center;
+
+}
+
+
+.info-box h2{
+
+    font-size:2.8rem;
+    margin-bottom:25px;
+
+}
+
+
+.info-box p{
+
+    color:var(--muted);
+    line-height:1.8;
+
+}
+
+
+
+/* CARDS */
+
+.cards{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+
+}
+
+
+.card{
+
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:35px;
+    transition:.3s;
+
+}
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+    border-color:var(--accent);
+
+}
+
+
+.card h3{
+
+    color:var(--accent);
+    margin-bottom:15px;
+
+}
+
+
+.card p{
+
+    color:var(--muted);
+    line-height:1.8;
+
+}
+
+
+
+/* SPLIT */
+
+.split{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+
+}
+
+
+.split h2{
+
+    font-size:2.8rem;
+
+}
+
+
+.split p{
+
+    color:var(--muted);
+    line-height:1.8;
+
+}
+
+
+
+/* CTA */
+
+.closing{
+
+    text-align:center;
+    max-width:850px;
+
+}
+
+
+.closing h2{
+
+    font-size:3rem;
+
+}
+
+
+.closing p{
+
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:35px;
+
+}
+
+
+.button{
+
+    display:inline-block;
+    background:var(--accent);
+    color:#000;
+    padding:16px 34px;
+    border-radius:999px;
+    font-weight:700;
+    text-decoration:none;
+
+}
+
+
+
+/* FOOTER */
+
+footer{
+
+    text-align:center;
+    padding:40px;
+    color:var(--muted);
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.nav-menu{
+    display:none;
+}
+
+.split{
+    grid-template-columns:1fr;
+}
+
+.info-box{
+    padding:35px;
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<header class="site-header">
+
+<div class="logo">
+
+<a href="index.html">
+WP Glass Co
+</a>
+
+</div>
+
+
+<nav class="nav-menu">
+
+<a href="index.html">Home</a>
+
+<a href="shop.html">Shop</a>
+
+<a href="wholesale.html">Wholesale</a>
+
+<a href="educate.html">Educate & Elevate</a>
+
+<a href="about.html">About</a>
+
+</nav>
+
+
+</header>
+
+
+
+
+
+<section class="page-hero">
 
 <div>
 
-<p style="color:var(--accent);letter-spacing:3px;">
+<p class="eyebrow">
 WHOLESALE INFORMATION
 </p>
+
 
 <h1>
 Your WP Partner<br>
 Guide.
 </h1>
+
 
 <p>
 Everything you need to know about partnering with WPGlassCo.
@@ -27,19 +357,24 @@ From requirements and ordering to support and resources,
 we're here to help you build a successful partnership.
 </p>
 
+
 </div>
 
 </section>
 
 
 
+
+
 <section>
 
-<div class="community-box">
+
+<div class="info-box">
 
 <h2>
 Built Around Real Partnerships
 </h2>
+
 
 <p>
 WPGlassCo believes wholesale should be more than a transaction.
@@ -48,45 +383,50 @@ share our appreciation for quality products, craftsmanship,
 and education.
 </p>
 
+
 <p>
 Our goal is to support our partners with great products,
 knowledge, and resources that help create better customer
 experiences.
 </p>
 
+
 </div>
+
 
 </section>
 
 
 
 
+
 <section>
+
 
 <h2 style="text-align:center;font-size:3rem;margin-bottom:60px;">
 Wholesale Requirements
 </h2>
 
 
-<div class="values">
+<div class="cards">
 
 
-<div class="value-card">
+<div class="card">
 
 <h3>
 Local Partnerships
 </h3>
 
 <p>
-Our wholesale program is currently focused on local retailers
-where we can provide direct support and personal connection.
+Our wholesale program focuses on local retailers where we can
+provide direct support and personal connection.
 </p>
 
 </div>
 
 
 
-<div class="value-card">
+<div class="card">
 
 <h3>
 $300 Minimum Order
@@ -100,7 +440,7 @@ Wholesale partnerships begin with a $300 minimum opening order.
 
 
 
-<div class="value-card">
+<div class="card">
 
 <h3>
 Retail Environment
@@ -115,7 +455,7 @@ that aligns with WP values.
 
 
 
-<div class="value-card">
+<div class="card">
 
 <h3>
 Shared Values
@@ -131,25 +471,27 @@ and responsible product knowledge.
 
 </div>
 
+
 </section>
 
 
 
 
 
-<section class="story-grid">
+<section class="split">
 
 
-<div class="story-text">
+<div>
 
 <h2>
 Partner Benefits
 </h2>
 
+
 <p>
-Approved WP partners receive more than inventory.
-We provide resources designed to help your team understand
-and confidently present our products.
+Approved WP partners receive more than inventory. We provide
+resources designed to help your team understand and confidently
+present our products.
 </p>
 
 
@@ -157,25 +499,25 @@ and confidently present our products.
 
 
 
-<div class="values">
+<div class="cards">
 
 
-<div class="value-card">
+<div class="card">
 
 <h3>
-E&E Guides
+Educate & Elevate Guides
 </h3>
 
 <p>
-Exclusive Educate & Elevate selling guides to support staff
-education and customer conversations.
+Exclusive selling resources to support staff education and
+customer conversations.
 </p>
 
 </div>
 
 
 
-<div class="value-card">
+<div class="card">
 
 <h3>
 Direct Support
@@ -200,15 +542,16 @@ support from WP.
 
 <section>
 
+
 <h2 style="text-align:center;font-size:3rem;margin-bottom:60px;">
 How Wholesale Works
 </h2>
 
 
-<div class="values">
+<div class="cards">
 
 
-<div class="value-card">
+<div class="card">
 
 <h3>
 01. Apply
@@ -223,22 +566,21 @@ your shop.
 
 
 
-<div class="value-card">
+<div class="card">
 
 <h3>
 02. Review
 </h3>
 
 <p>
-We'll review your application and connect with you about
-next steps.
+We'll review your application and connect about next steps.
 </p>
 
 </div>
 
 
 
-<div class="value-card">
+<div class="card">
 
 <h3>
 03. Select Products
@@ -252,7 +594,7 @@ Choose products that fit your customers and retail space.
 
 
 
-<div class="value-card">
+<div class="card">
 
 <h3>
 04. Grow Together
@@ -267,81 +609,6 @@ Continue building your partnership with ongoing support.
 
 </div>
 
-</section>
-
-
-
-
-
-<section>
-
-<h2 style="text-align:center;font-size:3rem;margin-bottom:60px;">
-Frequently Asked Questions
-</h2>
-
-
-<div class="values">
-
-
-<div class="value-card">
-
-<h3>
-What is the wholesale minimum?
-</h3>
-
-<p>
-Our wholesale program begins with a $300 minimum opening order.
-</p>
-
-</div>
-
-
-
-<div class="value-card">
-
-<h3>
-Do you personally deliver orders?
-</h3>
-
-<p>
-Yes. WP focuses on local partnerships and direct support
-whenever possible.
-</p>
-
-</div>
-
-
-
-<div class="value-card">
-
-<h3>
-Do partners receive education materials?
-</h3>
-
-<p>
-Yes. Approved partners receive access to exclusive
-Educate & Elevate selling resources.
-</p>
-
-</div>
-
-
-
-<div class="value-card">
-
-<h3>
-How do I become a partner?
-</h3>
-
-<p>
-Submit an application and our team will follow up with next
-steps.
-</p>
-
-</div>
-
-
-</div>
 
 </section>
 
@@ -358,8 +625,7 @@ Ready To Partner With WP?
 
 
 <p>
-Explore the opportunity to bring WPGlassCo products,
-education, and community into your store.
+Bring WPGlassCo products, education, and community into your store.
 </p>
 
 
@@ -369,6 +635,23 @@ Apply Now
 
 
 </section>
+
+
+
+
+<footer>
+
+<p>
+© WP Glass Co. All Rights Reserved.
+</p>
+
+</footer>
+
+
+
+</body>
+
+</html>
 
 
 <!-- ================= END WHOLESALE INFORMATION BODY ================= -->
