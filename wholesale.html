@@ -8,7 +8,303 @@
 <!-- ================= WHOLESALE PAGE BODY ================= -->
 
 
-<section class="wp-hero wholesale-hero">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wholesale | WP Glass Co</title>
+
+<link rel="stylesheet" href="assets/css/global.css">
+
+<style>
+
+:root{
+    --bg:#0b0b0b;
+    --card:#141414;
+    --text:#f5f5f5;
+    --muted:#9b9b9b;
+    --accent:#9CFF4F;
+    --border:rgba(255,255,255,.08);
+}
+
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+
+/* HERO */
+
+.wholesale-hero{
+    min-height:75vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 30px;
+}
+
+
+.eyebrow{
+    color:var(--accent);
+    letter-spacing:3px;
+    font-size:.85rem;
+    margin-bottom:25px;
+}
+
+
+.wholesale-hero h1{
+    font-size:clamp(3rem,8vw,6rem);
+    line-height:.95;
+    margin-bottom:25px;
+}
+
+
+.wholesale-hero p{
+    max-width:750px;
+    margin:auto;
+    color:var(--muted);
+    font-size:1.2rem;
+    line-height:1.8;
+}
+
+
+
+/* GENERAL */
+
+section{
+    width:min(1200px,92%);
+    margin:auto;
+    padding:100px 0;
+}
+
+
+.section-title{
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:60px;
+}
+
+
+
+/* CARDS */
+
+.cards{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+
+}
+
+
+.card{
+
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:35px;
+    transition:.3s;
+
+}
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+    border-color:var(--accent);
+
+}
+
+
+.card h3{
+
+    color:var(--accent);
+    margin-bottom:15px;
+
+}
+
+
+.card p{
+
+    color:var(--muted);
+    line-height:1.8;
+
+}
+
+
+
+/* FEATURE BOX */
+
+.community-box{
+
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:60px;
+    text-align:center;
+
+}
+
+
+.community-box h2{
+
+    font-size:2.8rem;
+    margin-bottom:25px;
+
+}
+
+
+.community-box p{
+
+    color:var(--muted);
+    line-height:1.8;
+    max-width:800px;
+    margin:20px auto;
+
+}
+
+
+
+/* SPLIT SECTION */
+
+.split{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+
+}
+
+
+.split h2{
+
+    font-size:2.8rem;
+
+}
+
+
+.split p{
+
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:20px;
+
+}
+
+
+.placeholder{
+
+    background:#1a1a1a;
+    border:1px solid var(--border);
+    border-radius:24px;
+    aspect-ratio:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+}
+
+
+.placeholder h3{
+
+    color:var(--accent);
+
+}
+
+
+
+/* BUTTON */
+
+.button{
+
+    display:inline-block;
+    background:var(--accent);
+    color:#000;
+    padding:16px 34px;
+    border-radius:999px;
+    font-weight:700;
+    text-decoration:none;
+    transition:.3s;
+
+}
+
+
+.button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+
+/* FINAL */
+
+.closing{
+
+    text-align:center;
+    max-width:850px;
+
+}
+
+
+.closing h2{
+
+    font-size:3rem;
+    margin-bottom:25px;
+
+}
+
+
+.closing p{
+
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:40px;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.split{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.community-box{
+
+    padding:35px;
+
+}
+
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- Existing header goes here -->
+
+
+<section class="wholesale-hero">
 
 <div>
 
@@ -24,11 +320,13 @@ To Your Community.
 
 
 <p>
-Partner with WPGlassCo and offer your customers premium
-handcrafted glass, curated products, and education-driven
-experiences backed by real support.
+Partner with WPGlassCo and bring handcrafted glass,
+curated collections, and education-driven experiences
+to your customers through a local partnership built on quality.
 </p>
 
+
+<br>
 
 <a href="wsapply.html" class="button">
 Apply For Partnership
@@ -41,9 +339,8 @@ Apply For Partnership
 
 
 
+<section>
 
-
-<section class="section">
 
 <div class="community-box">
 
@@ -53,9 +350,9 @@ Local Partnerships. Real Relationships.
 
 
 <p>
-We believe wholesale should be more than sending out boxes.
-WPGlassCo focuses on building relationships with local retailers
-who value quality products, education, and community.
+Wholesale should be more than sending out boxes.
+WPGlassCo works with retailers who value craftsmanship,
+education, and building real connections with their customers.
 </p>
 
 
@@ -67,18 +364,16 @@ We want to be where we can show up.
 
 </div>
 
+
 </section>
 
 
 
 
+<section>
 
 
-
-<section class="section">
-
-
-<h2 style="text-align:center;">
+<h2 class="section-title">
 Why Partner With WP?
 </h2>
 
@@ -86,72 +381,66 @@ Why Partner With WP?
 <div class="cards">
 
 
-
 <div class="card">
 
 <h3>
-📍 Local Only
+Local Partnerships
 </h3>
 
 <p>
-Our wholesale program is focused on building strong local
-partnerships with retailers we can personally support.
+Our wholesale program focuses on strong relationships with
+retailers we can personally support.
 </p>
 
 </div>
 
 
 
-
 <div class="card">
 
 <h3>
-💰 $300 Minimum Order
+$300 Opening Order
 </h3>
 
 <p>
 Start your partnership with an accessible opening order
-designed for shops looking to introduce WP products.
+designed for shops introducing WP products.
 </p>
 
 </div>
-
 
 
 
 <div class="card">
 
 <h3>
-🚚 Personally Delivered
+Personal Delivery
 </h3>
 
 <p>
-Local partners receive direct delivery and personal support
-instead of being just another order number.
+Local partners receive direct delivery and support instead
+of being another number in a warehouse system.
 </p>
 
 </div>
-
 
 
 
 <div class="card">
 
 <h3>
-📚 Educate & Elevate
+Educate & Elevate
 </h3>
 
 <p>
-Wholesale partners gain access to exclusive selling guides
-designed to help staff understand and showcase products.
+Partners receive access to product guides and resources
+designed to help staff confidently showcase WP pieces.
 </p>
 
 </div>
 
 
-
 </div>
-
 
 </section>
 
@@ -159,9 +448,7 @@ designed to help staff understand and showcase products.
 
 
 
-
-
-<section class="section split">
+<section class="split">
 
 
 <div>
@@ -172,21 +459,19 @@ More Than Inventory
 
 
 <p>
-WPGlassCo is built around craftsmanship, knowledge, and
-connection. We want our partners to feel confident carrying
-our products.
+WPGlassCo is built around craftsmanship, knowledge,
+and connection.
 </p>
 
 
 <p>
-Through product education and resources, we help retailers
-better explain the experience behind each piece.
+We help retailers understand the story behind each piece
+so customers can make informed choices.
 </p>
 
 
 <p>
-When your customers understand what makes a product special,
-they are able to make better choices.
+Great products deserve great representation.
 </p>
 
 
@@ -219,18 +504,15 @@ Retail Support
 
 
 
+<section>
 
 
-<section class="section">
-
-
-<h2 style="text-align:center;">
+<h2 class="section-title">
 How It Works
 </h2>
 
 
 <div class="cards">
-
 
 
 <div class="card">
@@ -240,7 +522,7 @@ How It Works
 </h3>
 
 <p>
-Tell us about your shop and your goals.
+Tell us about your shop and what you are looking for.
 </p>
 
 </div>
@@ -258,7 +540,6 @@ We'll review your application and discuss partnership options.
 </p>
 
 </div>
-
 
 
 
@@ -284,9 +565,7 @@ Choose products, receive your delivery, and bring WP to your customers.
 
 
 
-
-
-<section class="section">
+<section>
 
 
 <div class="community-box">
@@ -306,30 +585,22 @@ We are currently accepting partnerships with:
 
 
 <div class="card">
-<h3>
-Smoke Shops
-</h3>
+<h3>Smoke Shops</h3>
 </div>
 
 
 <div class="card">
-<h3>
-Glass Retailers
-</h3>
+<h3>Glass Retailers</h3>
 </div>
 
 
 <div class="card">
-<h3>
-Lifestyle Stores
-</h3>
+<h3>Lifestyle Stores</h3>
 </div>
 
 
 <div class="card">
-<h3>
-Specialty Retailers
-</h3>
+<h3>Specialty Retailers</h3>
 </div>
 
 
@@ -345,12 +616,7 @@ Specialty Retailers
 
 
 
-
-
-<section class="section community">
-
-
-<div class="community-box">
+<section class="closing">
 
 
 <h2>
@@ -369,10 +635,13 @@ Start Your Application
 </a>
 
 
-</div>
-
-
 </section>
+
+
+
+</body>
+
+</html>
 
 
 <!-- ================= END WHOLESALE PAGE BODY ================= -->
