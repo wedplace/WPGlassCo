@@ -1,1 +1,185 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090b10">
+<title>Terminology | WP Glass Co</title>
+<link rel="stylesheet" href="css/global.css">
+<style>
+:root{color-scheme:dark;--bg:#090b10;--panel:#111720;--panel2:#151e29;--ink:#edf4f4;--muted:#a4b3bb;--teal:#55e0d0;--purple:#a78bfa;--line:#263541}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Urbanist,system-ui,-apple-system,sans-serif}
+.terms-wrap{width:min(1120px,calc(100% - 36px));margin:0 auto;padding:54px 0 80px}
+.terms-kicker{color:var(--teal);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800}
+h1{font-size:clamp(2.5rem,7vw,5rem);line-height:.98;margin:12px 0 16px;letter-spacing:-.045em}
+.intro{max-width:700px;color:var(--muted);font-size:1.12rem;line-height:1.65;margin:0 0 30px}
+.tools{position:sticky;top:0;z-index:5;background:rgba(9,11,16,.94);backdrop-filter:blur(14px);padding:14px 0 16px;border-bottom:1px solid var(--line)}
+.search{width:100%;background:var(--panel);border:1px solid #354653;border-radius:12px;color:var(--ink);padding:15px 16px;font:inherit;font-size:1rem;outline:none}
+.search:focus{border-color:var(--teal);box-shadow:0 0 0 3px #55e0d022}
+.filters,.alphabet{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip,.letter{border:1px solid #354653;background:var(--panel);color:var(--muted);border-radius:999px;padding:8px 12px;font:inherit;font-size:.86rem;cursor:pointer}
+.chip[aria-pressed=true],.letter[aria-pressed=true]{background:#153b3b;border-color:var(--teal);color:var(--teal)}
+.letter:disabled{opacity:.25;cursor:default}
+.results-meta{color:var(--muted);font-size:.9rem;margin:22px 0}
+.term-group{margin:34px 0}
+.term-group h2{font-size:1.8rem;color:var(--teal);border-bottom:1px solid var(--line);padding-bottom:10px}
+.term-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.term{background:linear-gradient(145deg,var(--panel),#0e141b);border:1px solid var(--line);border-radius:12px;padding:16px}
+.term h3{font-size:1.05rem;margin:0 0 7px;color:var(--ink)}
+.term p{margin:0;color:var(--muted);line-height:1.55;font-size:.96rem}
+.term .tag{display:inline-block;color:var(--purple);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-top:10px}
+.empty{padding:28px;border:1px dashed var(--line);border-radius:12px;color:var(--muted)}
+.note{margin-top:48px;padding:18px;border-left:3px solid var(--purple);background:var(--panel);color:var(--muted);line-height:1.6}
+.back{display:inline-block;margin-top:24px;color:var(--teal);text-decoration:none}
+@media(max-width:650px){.terms-wrap{width:min(100% - 28px,1120px);padding-top:38px}.term-grid{grid-template-columns:1fr}.tools{position:static}}
+</style>
+</head>
+<body>
+<main class="terms-wrap">
+  <div class="terms-kicker">Educate &amp; Elevate</div>
+  <h1>Terminology<span style="color:var(--teal)">.</span></h1>
+  <p class="intro">The language of cannabis, decoded. Explore the plant, the science, the products, and the cultureâone term at a time.</p>
+  <section class="tools" aria-label="Glossary controls">
+    <input id="search" class="search" type="search" placeholder="Search a term or definitionâ¦" aria-label="Search terminology">
+    <div id="filters" class="filters" aria-label="Filter by category"></div>
+    <div id="alphabet" class="alphabet" aria-label="Jump to a letter"></div>
+  </section>
+  <p id="count" class="results-meta" aria-live="polite"></p>
+  <div id="results"></div>
+  <p class="note"><strong>Keep learning.</strong> Cannabis terminology can vary by region, product, and context. This glossary is an educational reference, not medical or legal advice. Product names and slang may be used inconsistently, so check reliable sources when details matter.</p>
+  <a class="back" href="eled.html">â Back to Educate &amp; Elevate</a>
+</main>
+<script>
+const terms = [
+["A","A-bud","Smaller cannabis flower buds, often separated from larger top-shelf buds.","Flower & Products"],
+["A","Activated carbon","A highly porous form of carbon used in some filtration systems to adsorb impurities and odors.","Glass & Accessories"],
+["A","Additive","A substance mixed into a cannabis product; the type and purpose depend on the product.","Products & Processing"],
+["A","Aeroponics","A cultivation method that suspends plant roots in air and delivers nutrients through a mist.","Cultivation"],
+["A","Afghani","A name associated with traditional cannabis genetics from Afghanistan and nearby regions.","Cultivars & Genetics"],
+["A","Alcohol extraction","A method that uses alcohol as a solvent to separate compounds from plant material.","Extraction"],
+["A","Anandamide","An endocannabinoid produced by the body that interacts with cannabinoid receptors.","Science & Chemistry"],
+["A","Aroma","The smell of cannabis, influenced by volatile compounds including terpenes.","Terpenes & Flavonoids"],
+["A","Autoflower","A cannabis plant that begins flowering based mainly on age rather than a change in light cycle.","Cultivation"],
+["B","Backcross","A breeding technique that crosses a hybrid with one of its parent lines to reinforce selected traits.","Cultivars & Genetics"],
+["B","Banger","A heat-resistant dish, commonly quartz, used with a dab rig to vaporize concentrates.","Glass & Accessories"],
+["B","Batch","A specific production run of a cannabis product, often tracked for testing and traceability.","Legal & Industry"],
+["B","Bioavailability","The proportion of a substance that enters circulation and is available for the body to use.","Science & Chemistry"],
+["B","Bong","A water pipe designed to cool and filter smoke before inhalation.","Glass & Accessories"],
+["B","Bowl","The part of a pipe or bong that holds flower; also used informally for a measured amount of flower.","Glass & Accessories"],
+["B","Broad-spectrum","A cannabis extract containing multiple compounds but with a particular compound, often THC, removed or reduced.","Cannabinoids"],
+["B","Bubble hash","A trichome-rich concentrate made using ice water and filtration bags.","Concentrates & Extraction"],
+["B","Bud","The commonly used name for the cannabis flower.","Flower & Products"],
+["B","Budder","A soft, creamy cannabis concentrate with a butter-like consistency.","Concentrates & Extraction"],
+["B","Butane hash oil (BHO)","A concentrate produced using butane as an extraction solvent; properly made products require rigorous purging and testing.","Concentrates & Extraction"],
+["C","Cannabinoid","A class of compounds that interact with cannabinoid receptors or related biological targets.","Cannabinoids"],
+["C","Cannabigerol (CBG)","A cannabinoid found in cannabis; its acidic precursor, CBGA, is a starting point for several other cannabinoids.","Cannabinoids"],
+["C","Cannabidiol (CBD)","A cannabinoid that is not intoxicating in the same way as delta-9 THC.","Cannabinoids"],
+["C","Cannabinol (CBN)","A cannabinoid that can form as THC degrades over time and with exposure to heat or light.","Cannabinoids"],
+["C","Cannabis","A genus of flowering plants that includes varieties cultivated for fiber, seed, and cannabinoid-rich flowers.","Basics & Plant"],
+["C","Carb cap","A small accessory placed over a banger to regulate airflow and help vaporize concentrate at lower temperatures.","Glass & Accessories"],
+["C","Clone","A genetically identical cutting taken from a living cannabis plant and rooted to grow a new plant.","Cultivation"],
+["C","CO2 extraction","An extraction process that uses carbon dioxide under controlled pressure and temperature to separate plant compounds.","Concentrates & Extraction"],
+["C","Concentrate","A product made by concentrating selected compounds from cannabis, often including cannabinoids and terpenes.","Concentrates & Extraction"],
+["C","Crossbreed","A plant produced by crossing two different varieties or genetic lines.","Cultivars & Genetics"],
+["C","Cure","The controlled post-harvest process of drying and storing flower to help stabilize moisture and preserve quality.","Cultivation"],
+["D","Dab","A small amount of cannabis concentrate vaporized on a heated surface and inhaled through a dab rig.","Consumption & Culture"],
+["D","Dab rig","A water pipe designed for vaporizing cannabis concentrates rather than burning flower.","Glass & Accessories"],
+["D","Decarboxylation","A chemical reaction, commonly caused by heat, that converts acidic cannabinoids such as THCA into forms such as THC.","Science & Chemistry"],
+["D","Delta-8 THC","A naturally occurring cannabinoid found in small amounts in cannabis; commercial products may use chemically converted material.","Cannabinoids"],
+["D","Delta-9 THC","The primary intoxicating cannabinoid commonly associated with the cannabis high.","Cannabinoids"],
+["D","Distillate","A highly refined cannabis oil in which selected compounds are concentrated through distillation.","Concentrates & Extraction"],
+["D","Dry sift","A concentrate made by mechanically separating trichomes from plant material using screens.","Concentrates & Extraction"],
+["E","Edible","A food or drink infused with cannabis compounds and intended to be consumed orally.","Flower & Products"],
+["E","Endocannabinoid","A signaling molecule made by the body that interacts with the endocannabinoid system.","Science & Chemistry"],
+["E","Endocannabinoid system (ECS)","A network of receptors, signaling molecules, and enzymes involved in regulating multiple body processes.","Science & Chemistry"],
+["E","Entourage effect","A proposed interaction in which cannabis compounds may influence one another's effects; the extent and clinical significance remain under study.","Science & Chemistry"],
+["E","Extraction","The process of separating desired compounds from cannabis plant material.","Concentrates & Extraction"],
+["F","Farm bill","U.S. federal legislation renewed periodically that includes provisions affecting agricultural hemp; it is not a blanket approval of every hemp-derived product.","Legal & Industry"],
+["F","Feminized seeds","Seeds bred to greatly reduce the likelihood of producing male plants.","Cultivation"],
+["F","Flower","The harvested, cannabinoid-rich reproductive structure of the cannabis plant.","Flower & Products"],
+["F","Flavonoid","A class of plant compounds that can contribute to color, taste, and aroma.","Terpenes & Flavonoids"],
+["F","Full-spectrum","A label generally used for extracts intended to retain a broad range of cannabis compounds; exact meaning can vary by producer and regulation.","Cannabinoids"],
+["G","Genotype","The genetic makeup of an organism or plant variety.","Cultivars & Genetics"],
+["G","Grinder","A tool used to break dried cannabis flower into smaller pieces.","Glass & Accessories"],
+["G","Grow medium","The material in which a plant's roots grow, such as soil, coco coir, or an inert medium.","Cultivation"],
+["H","Hemp","Cannabis legally defined under U.S. federal law by a delta-9 THC concentration limit of no more than 0.3% on a dry-weight basis; laws can differ by jurisdiction.","Legal & Industry"],
+["H","Hybrid","A cannabis cultivar bred from two or more genetic lines; labels like indica-leaning and sativa-leaning are broad shorthand, not precise effect guarantees.","Cultivars & Genetics"],
+["H","Hydroponics","A cultivation method that grows plants without soil, using a nutrient solution.","Cultivation"],
+["I","Ice water hash","A concentrate made by using cold water and agitation to separate trichomes from plant material.","Concentrates & Extraction"],
+["I","Indica","A traditional cannabis classification often used in retail descriptions; modern commercial genetics are frequently hybridized, and the label does not reliably predict effects.","Cultivars & Genetics"],
+["I","Infusion","The process of incorporating cannabis extract or plant compounds into another material, such as oil or food.","Products & Processing"],
+["K","Kief","A collection of loose trichomes sifted from cannabis flower, often appearing as a fine powder.","Concentrates & Extraction"],
+["L","Live resin","A concentrate made from fresh-frozen cannabis material to preserve more of its volatile aroma compounds.","Concentrates & Extraction"],
+["L","Live rosin","A solventless concentrate made from fresh-frozen material that is first processed into ice water hash and then pressed.","Concentrates & Extraction"],
+["M","Marijuana","A common term for cannabis, often used in legal and everyday contexts; terminology and legal definitions vary.","Basics & Plant"],
+["M","Micron","One-millionth of a meter; screen sizes in microns are used to describe filtration mesh.","Concentrates & Extraction"],
+["M","Myrcene","A terpene found in cannabis and many other plants, also present in foods such as mango and hops.","Terpenes & Flavonoids"],
+["N","Nug","Slang for a cannabis flower bud.","Flower & Products"],
+["O","Oil","A broad term for cannabis extracts with an oily consistency; composition varies widely.","Concentrates & Extraction"],
+["P","Percolator","A feature inside some water pipes that diffuses smoke through water using slits, holes, or other openings.","Glass & Accessories"],
+["P","Phenotype","The observable traits of a plant, shaped by genetics and growing conditions.","Cultivars & Genetics"],
+["P","Pistil","A flower structure; the hair-like stigmas on cannabis flowers often change color as the plant matures.","Basics & Plant"],
+["P","Pre-roll","A ready-to-smoke cannabis joint prepared before sale.","Flower & Products"],
+["P","Propylene glycol (PG)","A liquid used as a carrier in some products; suitability and safety depend on the product and heating conditions.","Products & Processing"],
+["Q","Quartz","A heat-resistant material commonly used to make bangers and other concentrate accessories.","Glass & Accessories"],
+["R","Rosin","A solventless concentrate made by applying heat and pressure to cannabis material.","Concentrates & Extraction"],
+["R","RSO (Rick Simpson Oil)","A type of concentrated cannabis oil associated with a specific preparation method; products vary and medical claims require evidence.","Concentrates & Extraction"],
+["S","Sativa","A traditional cannabis classification used in retail descriptions; it is not a dependable predictor of a product's effects.","Cultivars & Genetics"],
+["S","Shatter","A cannabis concentrate with a brittle, glass-like texture.","Concentrates & Extraction"],
+["S","Solventless","Describes an extraction method that does not use chemical solvents such as butane or ethanol.","Concentrates & Extraction"],
+["S","Strain","A widely used informal term for a cannabis variety; cultivar is often the more precise botanical term.","Cultivars & Genetics"],
+["S","Sugar","A granular, crystalline-textured cannabis concentrate, often with a wet or sauce-like component.","Concentrates & Extraction"],
+["T","Terpene","An aromatic compound produced by many plants, including cannabis, that contributes to scent and flavor.","Terpenes & Flavonoids"],
+["T","THCA","The acidic precursor to delta-9 THC; it can convert to THC through decarboxylation.","Cannabinoids"],
+["T","THC","A shorthand commonly used for tetrahydrocannabinol, especially delta-9 THC, the main intoxicating cannabinoid in cannabis.","Cannabinoids"],
+["T","Tincture","A liquid cannabis preparation, commonly taken by measured drops; formulations and routes of use vary.","Flower & Products"],
+["T","Trichome","A tiny hair-like glandular structure on cannabis flowers and leaves that produces resin containing cannabinoids and terpenes.","Basics & Plant"],
+["V","Vaporizer","A device that heats cannabis material or extract to release vapor or aerosol without traditional combustion.","Consumption & Culture"],
+["W","Water pipe","A device that passes smoke or vapor through water before inhalation; a bong is one common type.","Glass & Accessories"],
+["W","Wax","A soft, opaque cannabis concentrate with a wax-like texture.","Concentrates & Extraction"],
+["W","Whole plant","A phrase describing material or preparations that include a broad range of plant components rather than a single isolated compound.","Basics & Plant"]
+];
+const categories=[...new Set(terms.map(t=>t[3]))].sort();
+let activeCategory="All", activeLetter="All";
+const search=document.getElementById("search"), filters=document.getElementById("filters"), alphabet=document.getElementById("alphabet"), results=document.getElementById("results"), count=document.getElementById("count");
+function filtered(){
+ const q=search.value.trim().toLowerCase();
+ return terms.filter(t=>(activeCategory==="All"||t[3]===activeCategory)&&(activeLetter==="All"||t[0]===activeLetter)&&(!q||t[1].toLowerCase().includes(q)||t[2].toLowerCase().includes(q)||t[3].toLowerCase().includes(q))).sort((a,b)=>a[1].localeCompare(b[1]));
+}
+function render(){
+ const list=filtered(); count.textContent=`Showing ${list.length} of ${terms.length} terms`;
+ results.innerHTML="";
+ if(!list.length){results.innerHTML='<div class="empty">No matching terms. Try another search or clear a filter.</div>';return;}
+ const groups={}; list.forEach(t=>(groups[t[0]]??=[]).push(t));
+ Object.keys(groups).sort().forEach(letter=>{
+  const section=document.createElement("section");section.className="term-group";
+  const heading=document.createElement("h2");heading.textContent=letter;section.appendChild(heading);
+  const grid=document.createElement("div");grid.className="term-grid";
+  groups[letter].forEach(t=>{
+   const card=document.createElement("article");card.className="term";
+   const h=document.createElement("h3");h.textContent=t[1];
+   const p=document.createElement("p");p.textContent=t[2];
+   const tag=document.createElement("span");tag.className="tag";tag.textContent=t[3];
+   card.append(h,p,tag);grid.appendChild(card);
+  });section.appendChild(grid);results.appendChild(section);
+ });
+}
+function drawFilters(){
+ ["All",...categories].forEach(category=>{
+  const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=category;b.setAttribute("aria-pressed",String(activeCategory===category));
+  b.addEventListener("click",()=>{activeCategory=category;drawFilters();render();});filters.appendChild(b);
+ });
+}
+function drawAlphabet(){
+ const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+ const available=new Set(terms.map(t=>t[0]));
+ ["All",...letters].forEach(letter=>{
+  const b=document.createElement("button");b.className="letter";b.type="button";b.textContent=letter;b.disabled=letter!=="All"&&!available.has(letter);b.setAttribute("aria-pressed",String(activeLetter===letter));
+  b.addEventListener("click",()=>{activeLetter=letter;drawAlphabet();render();});alphabet.appendChild(b);
+ });
+}
+drawFilters();drawAlphabet();render();search.addEventListener("input",()=>{activeLetter="All";drawAlphabet();render();});
+</script>
+</body>
+</html>
